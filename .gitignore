@@ -44,3 +44,6 @@ Desktop.ini
 .vite/
 .turbo/
 *.tmp
+
+.vercel
+.env*
