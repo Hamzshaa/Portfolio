@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { techSections } from '../data/technologies';
+---
+
+<Layout
+  pageTitle="Technologies"
+  pageDescription="A curated, battle-tested index of languages, frameworks, databases, and systems used by Hamza Jhad."
+  pagePath="technologies"
+  bodyClass="technologies"
+>
+  <Fragment slot="header">
+    <p class="chapter">III</p>
+    <h1 id="content">Technologies</h1>
+  </Fragment>
+
+  <section class="container">
+    <div class="content">
+      <p class="intro-blurb">
+        Reliability over hype. No framework tourism or resume padding—just tools that pull their weight.
+      </p>
+
+      <div class="technologies-list">
+        {techSections.map((section) => (
+          <>
+            <h2 class="category-label">
+              <span>{section.title}</span>
+            </h2>
+            {section.items.map((tech) => (
+              <div class="tech-item">
+                <span class="tech-name">{tech.name}</span>
+                <span class="tech-dots" aria-hidden="true" />
+                <small class="tech-tag">{tech.tag}</small>
+              </div>
+            ))}
+          </>
+        ))}
+      </div>
+
+      <div class="tech-colophon">
+        <p>
+          <em>Looking for something specific? If it runs in a browser or lives on a Linux server, I’ve probably wrestled with it. These are simply the tools I reach for when building for longevity.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro-blurb {
+    font-size: var(--font-base);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .technologies-list {
+    grid-column: full;
+    display: grid;
+    row-gap: 0.65rem;
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  @media screen and (min-width: 500px) {
+    .technologies-list {
+      grid-template-columns: minmax(85px, 105px) 1fr;
+    }
+
+    .technologies-list .category-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      display: block;
+      background-color: var(--light-color);
+    }
+  }
+
+  @media screen and (max-width: 499px) {
+    .technologies-list {
+      grid-template-columns: 1fr;
+      row-gap: 0.55rem;
+    }
+
+    .technologies-list .category-label {
+      margin-top: 1.5rem;
+      grid-column: 1 / -1;
+    }
+
+    .technologies-list .category-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      display: block;
+      background-color: var(--light-color);
+    }
+
+    .technologies-list .tech-item {
+      grid-column: 1;
+      padding-left: 0.5rem;
+    }
+  }
+
+  .category-label {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: var(--font-xs);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    grid-column: 1;
+  }
+
+  .category-label:first-of-type {
+    margin-top: 0;
+  }
+
+  .tech-item {
+    margin-top: 0;
+    grid-column: 2;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    font-family: 'SydoniaAtramentiquaLight', 'Times New Roman', serif;
+    transition: transform 120ms ease-in-out;
+  }
+
+  .tech-item:hover {
+    transform: translateX(4px);
+  }
+
+  .tech-name {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--text-color);
+    white-space: nowrap;
+    transition: color 120ms ease-in-out;
+  }
+
+  .tech-item:hover .tech-name {
+    color: var(--accent);
+  }
+
+  .tech-dots {
+    flex: 1;
+    min-width: 1rem;
+    background-repeat: space no-repeat;
+    background-image: radial-gradient(circle, var(--text-color) 22%, transparent 23%);
+    background-size: 0.6em 0.6em;
+    background-position: 0 75%;
+    opacity: 0.35;
+    transition: opacity 120ms ease-in-out;
+  }
+
+  .tech-item:hover .tech-dots {
+    opacity: 0.8;
+  }
+
+  .tech-tag {
+    font-size: var(--font-xs);
+    font-style: italic;
+    opacity: 0.75;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 380px) {
+    .tech-item {
+      flex-wrap: wrap;
+      gap: 0.15rem 0.5rem;
+    }
+
+    .tech-dots {
+      display: none;
+    }
+  }
+
+  .tech-colophon {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dotted var(--light-color);
+    text-align: center;
+  }
+
+  .tech-colophon p {
+    font-size: var(--font-xs);
+    opacity: 0.75;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+</style>

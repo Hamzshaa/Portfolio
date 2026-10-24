@@ -1,0 +1,122 @@
+---
+interface Props {
+  bodyClass?: string;
+}
+
+const { bodyClass = '' } = Astro.props;
+const isHome = bodyClass === 'home';
+const targetHref = isHome ? '#nav' : '/';
+const targetTitle = isHome ? 'Scroll to Table of Contents' : 'Return to Table of Contents';
+---
+
+<aside class="floating-menu-container" aria-label="Site Navigation Shortcut">
+  <a
+    href={targetHref}
+    class="floating-menu-btn"
+    title={targetTitle}
+    aria-label={targetTitle}
+  >
+    <span class="btn-section" aria-hidden="true">§</span>
+    <span class="btn-label">Menu</span>
+  </a>
+</aside>
+
+<script>
+  function setupFloatingMenu() {
+    const btn = document.querySelector('.floating-menu-btn');
+    if (btn && btn.getAttribute('href') === '#nav') {
+      btn.addEventListener('click', (e) => {
+        const nav = document.getElementById('nav');
+        if (nav) {
+          e.preventDefault();
+          nav.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, '', '#nav');
+        }
+      });
+    }
+  }
+
+  setupFloatingMenu();
+  document.addEventListener('astro:page-load', setupFloatingMenu);
+</script>
+
+<style>
+  .floating-menu-container {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 999;
+  }
+
+  .floating-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    height: 26px;
+    padding: 0 0.6rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: 'Cinzel', 'EB Garamond', Georgia, serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.92;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease, opacity 140ms ease;
+  }
+
+  .floating-menu-btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+    opacity: 1;
+    transform: translateY(-1px);
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  }
+
+  .floating-menu-btn:active {
+    transform: translateY(0);
+  }
+
+  .floating-menu-btn:focus-visible {
+    outline: 2px dotted var(--text-color);
+    outline-offset: 3px;
+    opacity: 1;
+  }
+
+  .btn-section {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.85rem;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
+  .floating-menu-btn:hover .btn-section {
+    opacity: 1;
+  }
+
+  .btn-label {
+    line-height: 1;
+  }
+
+  @media screen and (max-width: 480px) {
+    .floating-menu-container {
+      top: 0.85rem;
+      right: 0.85rem;
+    }
+
+    .floating-menu-btn {
+      height: 24px;
+      padding: 0 0.5rem;
+      font-size: 0.68rem;
+    }
+  }
+</style>

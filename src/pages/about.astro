@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  pageTitle="About"
+  pageDescription="Hamza Jhad is a full-stack engineer and co-founder at BirtuCan Technologies PLC."
+  pagePath="about"
+  bodyClass="about"
+>
+  <Fragment slot="header">
+    <p class="chapter">I</p>
+    <h1 id="content">About</h1>
+  </Fragment>
+
+  <div class="container">
+    <div class="content">
+      <div class="avatar">
+        <img src="/assets/images/hamza-avatar.png" width="375" height="500" alt="Hamza Jhad" loading="eager" />
+      </div>
+
+      <p>Hey! I’m Hamza. Officially, I’m a full-stack engineer. In practice, as a co-founder at <a href="https://birtucansoftware.com" target="_blank" rel="noopener">BirtuCan Technologies PLC</a>, my role is usually <em>“whatever isn’t covered yet.”</em> Depending on the day, that means designing backend architecture, building UI, untangling operations, or tracking down elusive edge cases.</p>
+
+      <p>At BirtuCan, the primary milestone so far is an ERP platform for cafeterias and restaurants—now powering daily operations across venues in Addis Ababa and Bahir Dar. I also architect custom software for businesses with specific, messy requirements off-the-shelf tools can’t handle.</p>
+
+      <p>Watching software run in fast-paced dining rooms cemented a simple philosophy: <strong>usability comes first</strong>. A system can be scalable, secure, and elegant, but if people find it painful to use, it’s a failure.</p>
+
+      <blockquote>
+        One of the very worst uses of time is to do something very well that need not be done at all.
+        <cite>Brian Tracy</cite>
+      </blockquote>
+
+      <p>Off-screen: books, good coffee, overthinking chess moves, the gym, and, naturally, zoning out.</p>
+    </div>
+  </div>
+</Layout>

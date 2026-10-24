@@ -1,0 +1,21 @@
+{
+  "name": "Hamza Jhad - Software Developer",
+  "short_name": "Hamza Jhad",
+  "description": "Hamza Jhad is a software developer crafting robust systems, web applications, and digital tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#e4e2d7",
+  "icons": [
+    {
+      "src": "/assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

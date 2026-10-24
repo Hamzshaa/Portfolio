@@ -1,0 +1,143 @@
+---
+import ModeToggle from './ModeToggle.astro';
+
+interface Props {
+  bodyClass?: string;
+}
+
+const { bodyClass = '' } = Astro.props;
+---
+
+<nav id="nav" class={`main-nav ${bodyClass}`.trim()}>
+  <ol>
+    <li><a href="/about">About</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/technologies">Technologies</a></li>
+    <li><a href="/timeline">Timeline</a></li>
+  </ol>
+</nav>
+
+<div class="nav-footer-area">
+  <div class="toggle-corner" title="Toggle color scheme">
+    <ModeToggle />
+  </div>
+
+  <div class="signature-corner" title="Hamza Jhad">
+    <img
+      src="/assets/images/signature.png"
+      alt="Hamza Jhad's signature"
+      width="228"
+      height="140"
+      class="signature-img"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</div>
+
+{bodyClass === 'home' && (
+  <p class="colophon-credit">
+    Design inspired by <a href="https://lynnandtonic.com" target="_blank" rel="noopener noreferrer">Lynn Fisher</a>
+  </p>
+)}
+
+<style>
+  .nav-footer-area {
+    position: relative;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 3rem;
+  }
+
+  .toggle-corner {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.toggle-corner .mode-toggle) {
+    margin-top: 0;
+  }
+
+  .colophon-credit {
+    display: block;
+    margin: 1.5rem auto 0.5rem;
+    padding: 0 1rem;
+    font-size: var(--font-xs);
+    font-family: 'SydoniaAtramentiquaItalic', 'Times New Roman', serif;
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.75;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .colophon-credit:hover {
+    opacity: 1;
+  }
+
+  .colophon-credit a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 150ms ease-in-out;
+  }
+
+  .colophon-credit a:hover {
+    color: var(--focus-color);
+  }
+
+  .signature-corner {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+  }
+
+  .signature-img {
+    display: block;
+    width: 95px;
+    height: auto;
+    transform: rotate(-5deg);
+    transform-origin: center right;
+    filter: brightness(0.2) contrast(1.15);
+    opacity: 0.85;
+    transition: filter 250ms ease-in-out, transform 150ms ease-in-out, opacity 150ms ease-in-out;
+  }
+
+  .signature-img:hover {
+    transform: rotate(-1.5deg) scale(1.1);
+    opacity: 1;
+  }
+
+  /* Dark mode: revert / invert color to bright warm bookish white against the dark background */
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme='light'])) .signature-img {
+      filter: invert(1) brightness(1.2) sepia(0.25);
+    }
+  }
+
+  :global([data-user-color-scheme='dark']) .signature-img {
+    filter: invert(1) brightness(1.2) sepia(0.25);
+  }
+
+  :global([data-user-color-scheme='light']) .signature-img {
+    filter: brightness(0.2) contrast(1.15);
+  }
+
+  @media screen and (max-width: 440px) {
+    .signature-img {
+      width: 78px;
+    }
+  }
+</style>

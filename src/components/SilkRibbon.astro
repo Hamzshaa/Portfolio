@@ -1,0 +1,203 @@
+---
+// src/components/SilkRibbon.astro
+---
+
+<aside class="silk-ribbon-container" aria-label="Folio Bookmark">
+  <div
+    class="silk-ribbon"
+    id="silk-ribbon"
+    role="button"
+    tabindex="0"
+    title="Folio Bookmark: Click to return to top"
+    aria-label="Folio Bookmark: Return to top of page"
+  >
+    <div class="ribbon-glyph" aria-hidden="true">❧</div>
+  </div>
+
+  <div class="bookmark-toast" id="bookmark-toast" aria-live="polite">
+    <span>Folio Bookmarked</span>
+  </div>
+</aside>
+
+<style>
+  .silk-ribbon-container {
+    position: fixed;
+    top: 0;
+    /* Anchors to the left edge of the centered reading column */
+    left: max(1.25rem, calc(50% - 370px));
+    z-index: 998;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .silk-ribbon-container {
+      display: none !important;
+    }
+  }
+
+  .silk-ribbon {
+    pointer-events: auto;
+    position: relative;
+    width: 20px;
+    height: 96px;
+    background-color: var(--text-color);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 9px), 0 100%);
+    cursor: pointer;
+    transform-origin: top center;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
+    opacity: 0.82;
+  }
+
+  .silk-ribbon:hover {
+    opacity: 1;
+    animation: ribbonHoverPhysics 1.6s ease-in-out infinite;
+  }
+
+  .silk-ribbon:focus-visible {
+    outline: 2px dotted var(--text-color);
+    outline-offset: 3px;
+  }
+
+  .ribbon-glyph {
+    color: var(--bg-color);
+    font-size: 0.7rem;
+    line-height: 1;
+    opacity: 0.9;
+    user-select: none;
+  }
+
+  /* Physics: Idle breathing & Hover pendulum */
+  @keyframes ribbonHoverPhysics {
+    0% { transform: translateY(4px) rotate(0deg); }
+    25% { transform: translateY(7px) rotate(-2deg); }
+    75% { transform: translateY(5px) rotate(2deg); }
+    100% { transform: translateY(4px) rotate(0deg); }
+  }
+
+  /* Physics: Click Spring Snap Oscillation */
+  .silk-ribbon.is-plucked {
+    animation: ribbonSpringSnap 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.35) forwards;
+  }
+
+  @keyframes ribbonSpringSnap {
+    0% {
+      transform: translateY(22px) scaleY(1.1) rotate(0deg);
+    }
+    20% {
+      transform: translateY(-6px) scaleY(0.94) rotate(-3deg);
+    }
+    40% {
+      transform: translateY(9px) scaleY(1.04) rotate(2.5deg);
+    }
+    65% {
+      transform: translateY(-2px) scaleY(0.98) rotate(-1deg);
+    }
+    85% {
+      transform: translateY(1px) scaleY(1.01) rotate(0.5deg);
+    }
+    100% {
+      transform: translateY(0) scaleY(1) rotate(0deg);
+    }
+  }
+
+  /* Bookmark Notification Toast */
+  .bookmark-toast {
+    position: absolute;
+    top: 104px;
+    left: -22px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px dotted var(--light-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    padding: 0.25rem 0.65rem;
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: all 0.2s ease-out;
+  }
+
+  .bookmark-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Silk Ribbon Physics & Bookmark Interaction
+  const ribbon = document.getElementById('silk-ribbon');
+  const toast = document.getElementById('bookmark-toast');
+
+  let toastTimer: any = null;
+
+  const pluckRibbon = () => {
+    if (!ribbon) return;
+
+    // Trigger spring physics animation
+    ribbon.classList.remove('is-plucked');
+    void ribbon.offsetWidth; // force reflow
+    ribbon.classList.add('is-plucked');
+
+    // Smoothly scroll to the top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    // Show temporary bookmark confirmation toast
+    if (toast) {
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+  };
+
+  ribbon?.addEventListener('click', pluckRibbon);
+
+  ribbon?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      pluckRibbon();
+    }
+  });
+
+  // Dynamic subtle sway on scroll velocity
+  let lastScrollY = window.scrollY;
+  let scrollTicking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking && ribbon && !ribbon.classList.contains('is-plucked')) {
+      window.requestAnimationFrame(() => {
+        const delta = window.scrollY - lastScrollY;
+        const tilt = Math.max(-4, Math.min(4, delta * 0.06));
+        ribbon.style.transform = `rotate(${tilt}deg)`;
+        
+        setTimeout(() => {
+          if (ribbon && !ribbon.classList.contains('is-plucked')) {
+            ribbon.style.transform = '';
+          }
+        }, 150);
+
+        lastScrollY = window.scrollY;
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+</script>

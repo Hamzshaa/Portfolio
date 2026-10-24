@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import thoughts from '../../data/thoughts.json';
+import type { Thought } from '../../types/thought';
+
+const thoughtsEntries = (thoughts as Thought[]) || [];
+---
+
+<Layout
+  pageTitle="Thoughts"
+  pageDescription="Writing by Hamza Jhad about software engineering, systems design, and craft."
+  pagePath="thoughts"
+  bodyClass="thoughts"
+>
+  <Fragment slot="header">
+    <p class="chapter">Essays</p>
+    <h1 id="content">Thoughts</h1>
+  </Fragment>
+
+  <section class="container">
+    {thoughtsEntries.length > 0 ? (
+      <div class="thoughts-list">
+        {thoughtsEntries.map((thought) => (
+          <>
+            <h2 class="dateline">{new Date(thought.date).getFullYear()}</h2>
+            <div class="thought">
+              <a class="thought-title" href={`/thoughts/entries/${thought.slug}`}>
+                <span>{thought.title}</span>
+              </a>
+            </div>
+          </>
+        ))}
+      </div>
+    ) : (
+      <div class="content thoughts-empty-state">
+        <p class="intro-blurb">
+          Essays, architectural notes, and field treatises are currently in draft. Nothing is published until it's survived production and a harsh self-edit.
+        </p>
+
+        <div class="empty-colophon">
+          <span class="fleuron" aria-hidden="true">❧</span>
+          <p><em>Treatises forthcoming. Check back or dispatch an email.</em></p>
+        </div>
+      </div>
+    )}
+  </section>
+</Layout>
+
+<style>
+  .thoughts-empty-state {
+    margin-top: 1.5rem;
+  }
+
+  .intro-blurb {
+    font-size: var(--font-base);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .empty-colophon {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dotted var(--light-color);
+    text-align: center;
+  }
+
+  .empty-colophon .fleuron {
+    color: var(--accent);
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-colophon p {
+    font-size: var(--font-xs);
+    opacity: 0.75;
+    margin: 0;
+  }
+</style>

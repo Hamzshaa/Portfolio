@@ -1,0 +1,1371 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Deployment {
+  name: string;
+  url?: string;
+  displayUrl: string;
+  tag: string;
+  description?: string;
+  logo: string;
+}
+
+interface Project {
+  slug: string;
+  title: string;
+  category: string;
+  summary: string;
+  image: string;
+  alt: string;
+  isMulti: boolean;
+  url?: string;
+  displayUrl?: string;
+  deployments?: Deployment[];
+}
+
+const projects: Project[] = [
+  {
+    slug: 'restaurant-hospitality-erp',
+    title: 'Restaurant & Hospitality ERP',
+    category: 'Enterprise Hospitality & F&B Operations',
+    summary:
+      'All-in-one operations platform managing table QR ordering, kitchen dispatch, dual-level inventory, HR attendance, payroll, and multi-bank financial reconciliations across leading dining venues in Addis Ababa and Bahir Dar.',
+    image: '/assets/images/projects/hospitality-erp.webp',
+    alt: 'Restaurant & Hospitality ERP operations dashboard showcase',
+    isMulti: true,
+    deployments: [
+      {
+        name: 'Cloud Sun Cafe (Bahir Dar)',
+        url: 'https://cloudsunbahirdar.com/',
+        displayUrl: 'cloudsunbahirdar.com',
+        tag: 'Bahir Dar',
+        description:
+          'Table-side QR ordering, kitchen display workflows, and automated staff payroll.',
+        logo: '/assets/images/projects/logos/cloud-sun-bahirdar.webp',
+      },
+      {
+        name: 'Arabian Palace Restaurant',
+        url: 'https://arabianpalace-eth.com/',
+        displayUrl: 'arabianpalace-eth.com',
+        tag: 'Addis Ababa',
+        description:
+          'Multi-floor dining & lounge with multi-station routing and daily settlement.',
+        logo: '/assets/images/projects/logos/arabian-palace.webp',
+      },
+      {
+        name: 'Cloud Sun Cafe (Addis Ababa)',
+        url: 'https://cloudsun-cafe.com/',
+        displayUrl: 'cloudsun-cafe.com',
+        tag: 'Addis Ababa',
+        description:
+          'Metropolitan branch handling fast table turnover and central procurement.',
+        logo: '/assets/images/projects/logos/cloud-sun-cafe.webp',
+      },
+      {
+        name: 'KOS Home Cafe',
+        url: 'https://koshomecafe.com/',
+        displayUrl: 'koshomecafe.com',
+        tag: 'Specialty Dining',
+        description:
+          'Specialty brunch hub with recipe cost tracking and live inventory replenishment.',
+        logo: '/assets/images/projects/logos/kos-home-cafe.webp',
+      },
+    ],
+  },
+  {
+    slug: 'nur-selam-factory',
+    title: 'Nur Selam Baltna: Factory Manufacturing ERP',
+    category: 'Industrial Manufacturing & Supply Chain',
+    summary:
+      'End-to-end industrial production ERP coordinating raw agricultural material intake, formulation batching, packaging lines, and wholesale distributor logistics.',
+    image: '/assets/images/projects/nur-selam-factory.webp',
+    alt: 'Nur Selam Baltna industrial manufacturing ERP showcase',
+    isMulti: false,
+    url: 'https://nurselambaltina.com/',
+    displayUrl: 'nurselambaltina.com',
+  },
+  {
+    slug: 'retail-pos-shop-erp',
+    title: 'Retail POS & Shop Management Platform',
+    category: 'Omnichannel Retail & Inventory',
+    summary:
+      'Versatile retail management ERP featuring barcode scanning, lot and expiry tracking, supplier purchase orders, and multi-store inventory synchronization.',
+    image: '/assets/images/projects/retail-pos-platform.webp',
+    alt: 'Retail POS and Shop Management Platform showcase',
+    isMulti: true,
+    deployments: [
+      {
+        name: 'Cloud Group: Retail & Treasury',
+        url: 'https://cloudgroup-et.com/',
+        displayUrl: 'cloudgroup-et.com',
+        tag: 'Retail & Treasury ERP',
+        description:
+          'Multi-tier wholesale & retail POS checkout, automated refill approvals, and treasury reconciliation.',
+        logo: '/assets/images/projects/logos/cloud-group.webp',
+      },
+      {
+        name: 'Yusra Baltina',
+        url: 'https://yusrabaltina.com/',
+        displayUrl: 'yusrabaltina.com',
+        tag: 'Food & Spices',
+        description:
+          'Bulk food spices and traditional flours POS with batch expiry tracking.',
+        logo: '/assets/images/projects/logos/yusra-baltina.webp',
+      },
+      {
+        name: 'Yoban Kitchenware',
+        url: 'https://yoban-et.com/',
+        displayUrl: 'yoban-et.com',
+        tag: 'Home & Kitchen',
+        description:
+          'High-SKU kitchenware management with barcode printing and wholesale tiers.',
+        logo: '/assets/images/projects/logos/yoban.webp',
+      },
+      {
+        name: 'Nur Selam Baltina Shop',
+        url: 'https://shop.nurselambaltina.com/',
+        displayUrl: 'shop.nurselambaltina.com',
+        tag: 'Direct Retail',
+        description:
+          'Consumer retail storefront with real-time stock sync from central factory.',
+        logo: '/assets/images/projects/logos/nur-selam-shop.webp',
+      },
+      {
+        name: 'Ethio Yarn Store',
+        url: 'https://ethioyarnstores.com/',
+        displayUrl: 'ethioyarnstores.com',
+        tag: 'Shop Mobile App & POS',
+        description:
+          'Omnichannel shop suite with a Flutter mobile shopping app, GPS delivery fee calculations, and multi-store inventory sync.',
+        logo: '/assets/images/projects/logos/ethio-yarn-store.webp',
+      },
+    ],
+  },
+  {
+    slug: 'humanitarian-ngo-ecosystem',
+    title: 'Non-Profit & Humanitarian Ecosystem',
+    category: 'Humanitarian Aid & Social Welfare Tech',
+    summary:
+      'Integrated digital ecosystem anchored by Eznet Child Care, enabling child welfare tracking, clinic workflows, donor management, and QR-verified community food aid distributions.',
+    image: '/assets/images/projects/ngo-ecosystem.webp',
+    alt: 'Non-profit and humanitarian digital systems showcase',
+    isMulti: true,
+    deployments: [
+      {
+        name: 'Eznet Child Care Portal',
+        url: 'https://eznet-cp.com/',
+        displayUrl: 'eznet-cp.com',
+        tag: 'Child Welfare Portal',
+        description:
+          'Sponsorship & welfare portal tracking child health records and donor milestones.',
+        logo: '/assets/images/projects/logos/eznet.webp',
+      },
+      {
+        name: 'Metezazen Charity',
+        url: 'https://metezazen.org/',
+        displayUrl: 'metezazen.org',
+        tag: 'Meal Distribution',
+        description:
+          'QR-verified meal voucher network distributing meals across partner restaurants.',
+        logo: '/assets/images/projects/logos/metezazen.webp',
+      },
+      {
+        name: 'My Charities Foundation',
+        url: 'https://mycharities-foundation.org/',
+        displayUrl: 'mycharities-foundation.org',
+        tag: 'Global Foundation',
+        description:
+          'International humanitarian portal for fundraising campaigns and verified metrics.',
+        logo: '/assets/images/projects/logos/my-charities.webp',
+      },
+      {
+        name: 'Dar Al-Fiker Foundation',
+        url: 'https://daralfiker.org/',
+        displayUrl: 'daralfiker.org',
+        tag: 'Education & Relief',
+        description:
+          'Community foundation managing orphan sponsorship, dorm aid, and relief programs.',
+        logo: '/assets/images/projects/logos/dar-al-fiker.webp',
+      },
+      {
+        name: 'Afak Organization',
+        url: 'https://www.afakorganization.com/',
+        displayUrl: 'afakorganization.com',
+        tag: 'Community Development',
+        description:
+          'Civil society portal coordinating disaster relief and youth capacity building.',
+        logo: '/assets/images/projects/logos/afak-organization.webp',
+      },
+      {
+        name: 'Mamedoch Association',
+        url: 'https://mamedoch.org/',
+        displayUrl: 'mamedoch.org',
+        tag: 'Youth & Welfare',
+        description:
+          'Community welfare initiative facilitating emergency support and member mutual aid.',
+        logo: '/assets/images/projects/logos/mamedoch.webp',
+      },
+
+      {
+        name: 'Ethiopian Ahle Sunna: Mosque Network',
+        url: 'https://ethioahlesunnah.org/',
+        displayUrl: 'ethioahlesunnah.org',
+        tag: 'Mosque Network & Operations',
+        description:
+          'Nationwide mosque directory, prayer schedules, fundraising campaigns, and student applications across regional branches.',
+        logo: '/assets/images/projects/logos/ahle-sunna.webp',
+      },
+      {
+        name: 'Arefa Islamic Institution',
+        url: 'https://arefaic.org/',
+        displayUrl: 'arefaic.org',
+        tag: 'Community & Institution',
+        description:
+          'Multilingual digital portal with real-time prayer calculations, donation packages, program registrations, and localized CMS.',
+        logo: '/assets/images/projects/logos/arefa-center.webp',
+      },
+      {
+        name: "Atika Women's Center",
+        url: 'https://atikawec.com/',
+        displayUrl: 'atikawec.com',
+        tag: "Women's Empowerment & Ed",
+        description:
+          'Comprehensive digital portal and administrative suite for Islamic education, student admissions, and digital ID card generation.',
+        logo: '/assets/images/projects/logos/atika.webp',
+      },
+    ],
+  },
+  {
+    slug: 'saramall',
+    title: 'Sara Mall: Commercial Property & Tenant ERP',
+    category: 'Commercial Real Estate & Property ERP',
+    summary:
+      'An integrated building management platform for commercial retail spaces, floor inventory, room leasing, tenant lifecycle management, and automated rent schedules.',
+    image: '/assets/images/projects/saramall.webp',
+    alt: 'Sara Mall commercial property and tenant management ERP showcase',
+    isMulti: false,
+    url: '',
+    displayUrl: '',
+  },
+];
+
+const multiProjects = projects.filter((p) => p.isMulti && p.deployments);
+---
+
+<Layout
+  pageTitle="Work"
+  pageDescription="A selected catalogue of enterprise ERP platforms, multi-tenant business systems, EdTech portals, and humanitarian operational software built by Hamza Jhad."
+  pagePath="work"
+  bodyClass="work"
+>
+  <Fragment slot="header">
+    <p class="chapter">II</p>
+    <h1 id="content">Work</h1>
+  </Fragment>
+
+  <p class="intro-blurb">
+    A selected catalogue of production ERP platforms, retail management systems, educational portals, and humanitarian operational software. Platforms serving multiple client venues include an interactive directory of live deployments.
+  </p>
+
+  <ul class="archive-list">
+    {projects.map((project) => (
+      <li class={`project ${project.slug}`}>
+        {project.isMulti ? (
+          <button
+            type="button"
+            class="archive-image trigger-deployments-btn"
+            data-project-slug={project.slug}
+            aria-label={`View live deployments for ${project.title}`}
+          >
+            <img
+              src={project.image}
+              width="1150"
+              height="700"
+              alt={project.alt}
+              decoding="async"
+              loading="lazy"
+            />
+          </button>
+        ) : project.url ? (
+          <a
+            class="archive-image"
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit live website for ${project.title}`}
+          >
+            <img
+              src={project.image}
+              width="1150"
+              height="700"
+              alt={project.alt}
+              decoding="async"
+              loading="lazy"
+            />
+          </a>
+        ) : (
+          <div
+            class="archive-image no-link"
+            aria-label={project.title}
+          >
+            <img
+              src={project.image}
+              width="1150"
+              height="700"
+              alt={project.alt}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        )}
+
+        <div class="links">
+          <small>
+            {project.isMulti ? (
+              <button
+                type="button"
+                class="project-title-btn trigger-deployments-btn"
+                data-project-slug={project.slug}
+              >
+                {project.title}
+              </button>
+            ) : project.url ? (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                {project.title}
+              </a>
+            ) : (
+              <span class="project-title-static">{project.title}</span>
+            )}
+          </small>
+          {project.isMulti ? (
+            <small>
+              <button
+                type="button"
+                class="deployment-pill-btn trigger-deployments-btn"
+                data-project-slug={project.slug}
+              >
+                {project.deployments?.length} Deployments ▾
+              </button>
+            </small>
+          ) : project.url ? (
+            <small>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="direct-link"
+              >
+                {project.displayUrl} ↗
+              </a>
+            </small>
+          ) : null}
+        </div>
+
+        <p class="project-summary">{project.summary}</p>
+        <div class="project-meta">
+          <span class="category-tag">{project.category}</span>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Production Deployments Modal Dialog (Bookish Folio Parchment) -->
+  <dialog id="deployments-dialog" class="deployments-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-paper" id="dialog-paper">
+      <!-- Crinkle Creases & Sheen Sweeps -->
+      <div class="paper-crease-overlay" aria-hidden="true"></div>
+      <div class="paper-sheen-sweep" aria-hidden="true"></div>
+
+      <!-- Bookplate Corner Rosettes -->
+      <span class="paper-corner-rosette rosette-tl" aria-hidden="true">❖</span>
+      <span class="paper-corner-rosette rosette-tr" aria-hidden="true">❖</span>
+      <span class="paper-corner-rosette rosette-bl" aria-hidden="true">❖</span>
+      <span class="paper-corner-rosette rosette-br" aria-hidden="true">❖</span>
+
+      <div class="dialog-scroll-container">
+        <!-- Folio Header -->
+        <div class="dialog-header">
+          <div class="dialog-header-text">
+            <div class="dialog-folio-meta">
+              <span class="folio-fleuron">❧</span>
+              <span class="folio-label">FOLIO · PRODUCTION ARCHIVE</span>
+              <span class="folio-fleuron">❧</span>
+            </div>
+            <h2 id="dialog-title" class="dialog-title">Platform Deployments</h2>
+            <div class="dialog-badge-container">
+              <span id="dialog-badge" class="dialog-badge">Live Deployments</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="dialog-close-btn"
+            id="dialog-close-btn"
+            aria-label="Close folio (Esc)"
+            title="Close folio (Esc)"
+          >
+            <span class="close-symbol" aria-hidden="true">✕</span>
+          </button>
+        </div>
+
+        <!-- Engraved Etched Rule -->
+        <div class="folio-etched-rule" aria-hidden="true">
+          <span class="rule-line"></span>
+          <span class="rule-fleuron">❦</span>
+          <span class="rule-line"></span>
+        </div>
+
+        <div class="dialog-content-area">
+          {multiProjects.map((proj) => (
+            <div
+              class="platform-group"
+              id={`group-${proj.slug}`}
+              data-title={proj.title}
+              data-count={`${proj.deployments?.length} Live Deployments`}
+              hidden
+            >
+              <ul class="deployments-list">
+                {proj.deployments?.map((dep) => (
+                  <li class="deployment-row">
+                    <div class="deployment-main">
+                      <div class="deployment-logo-frame">
+                        <img
+                          src={dep.logo}
+                          alt=""
+                          width="34"
+                          height="34"
+                          class="deployment-logo-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="deployment-info">
+                        <span class="deployment-name">{dep.name}</span>
+                        <span class="deployment-tag">{dep.tag}</span>
+                      </div>
+                    </div>
+                    {dep.url && (
+                      <a
+                        href={dep.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="deployment-link"
+                        title={`Visit ${dep.name}`}
+                      >
+                        <span class="link-label">{dep.displayUrl}</span>
+                        <svg
+                          class="external-arrow"
+                          width="11"
+                          height="11"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Folio Footer / Colophon -->
+        <div class="dialog-footer">
+          <div class="footer-colophon">
+            <span class="colophon-fleuron">❧</span>
+            <span class="colophon-text">VERIFIED PRODUCTION DIRECTORY</span>
+            <span class="colophon-fleuron">❧</span>
+          </div>
+          <button type="button" class="dialog-footer-btn" id="dialog-footer-close-btn">
+            <span>Close Folio</span>
+            <span class="footer-btn-glyph" aria-hidden="true">✕</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+</Layout>
+
+<style>
+  .intro-blurb {
+    font-size: var(--font-base);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 44rem;
+  }
+
+  .archive-list {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .archive-list .project {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Reset button styles for interactive project images */
+  .archive-list button.archive-image {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+  }
+
+  .archive-list button.archive-image:focus:focus-visible {
+    outline: 4px solid var(--focus-color);
+    outline-offset: 0;
+    box-shadow: 9px 9px 0 4px var(--text-color);
+  }
+
+  .archive-list .archive-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  /* Project title button reset */
+  .archive-list button.project-title-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-color);
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    text-transform: uppercase;
+    font-size: inherit;
+    text-align: left;
+  }
+
+  .archive-list button.project-title-btn:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-style: wavy;
+  }
+
+  /* Deployments pill button */
+  .archive-list button.deployment-pill-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 3px 9px;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    border-radius: 2px;
+  }
+
+  .archive-list button.deployment-pill-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  .archive-list .direct-link {
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.95rem;
+  }
+
+  .archive-list .archive-image.no-link {
+    cursor: default;
+  }
+
+  .archive-list .project-title-static {
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    text-transform: uppercase;
+  }
+
+  /* Project summary & category meta */
+  .project-summary {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0.65rem 0 0.4rem 0;
+    opacity: 0.9;
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.15rem;
+  }
+
+  .category-tag {
+    font-size: 0.75rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.65;
+  }
+
+  /* Prevent background page scroll when dialog is active */
+  :global(body.dialog-open) {
+    overflow: hidden;
+  }
+
+  /* Production Deployments Dialog: Authentic Antique Deckled Folio Parchment */
+  .deployments-dialog {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    padding: 0;
+    max-width: 740px;
+    width: calc(100vw - 2.5rem);
+    max-height: 88vh;
+    margin: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: visible;
+    /* Drop shadow wraps precisely around the non-rectangular deckled paper shape */
+    filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.48))
+            drop-shadow(0 4px 12px rgba(0, 0, 0, 0.32));
+  }
+
+  .deployments-dialog::backdrop {
+    background: radial-gradient(
+      circle at center,
+      rgba(15, 13, 10, 0.78) 0%,
+      rgba(8, 7, 5, 0.9) 100%
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.25s ease;
+  }
+
+  .deployments-dialog.is-closing::backdrop {
+    opacity: 0;
+  }
+
+  /* The Organic Non-Rectangular Deckled Paper Folio Sheet */
+  .dialog-paper {
+    position: relative;
+    width: 100%;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    background-image: url("/assets/images/bg-pattern.jpg");
+    background-size: 1400px auto;
+    color: var(--text-color);
+    transform-origin: center center;
+    transform: rotate(-0.35deg);
+
+    /* Organic Deckled Edge (Imperfect, non-rectangular handmade parchment perimeter) */
+    clip-path: polygon(
+      0.3% 0.8%, 7% 0.2%, 14% 0.6%, 22% 0.1%, 31% 0.5%, 39% 0.2%, 48% 0.7%, 57% 0.1%, 66% 0.5%, 75% 0.2%, 84% 0.6%, 92% 0.1%, 99.4% 0.5%,
+      99.7% 6%, 99.3% 13%, 99.8% 21%, 99.4% 29%, 99.7% 38%, 99.3% 47%, 99.8% 56%, 99.4% 65%, 99.7% 74%, 99.3% 82%, 99.8% 91%, 99.5% 99.3%,
+      92% 99.7%, 84% 99.3%, 75% 99.8%, 66% 99.4%, 57% 99.7%, 48% 99.2%, 39% 99.7%, 30% 99.3%, 22% 99.8%, 14% 99.4%, 6% 99.7%, 0.5% 99.2%,
+      0.2% 92%, 0.7% 83%, 0.1% 74%, 0.6% 65%, 0.2% 56%, 0.7% 47%, 0.1% 38%, 0.6% 29%, 0.2% 21%, 0.7% 13%, 0.3% 6%
+    );
+
+    /* Aged edge vignette hugging the perimeter */
+    box-shadow:
+      inset 0 0 18px rgba(0, 0, 0, 0.15),
+      inset 0 0 3px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Dark mode: keep dialog deeply dark while illuminating the organic deckled paper perimeter and corners */
+  :global([data-user-color-scheme="dark"]) .deployments-dialog {
+    filter: drop-shadow(0 0 1.5px rgba(240, 235, 225, 0.55))
+            drop-shadow(0 22px 50px rgba(0, 0, 0, 0.9));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .deployments-dialog {
+      filter: drop-shadow(0 0 1.5px rgba(240, 235, 225, 0.55))
+              drop-shadow(0 22px 50px rgba(0, 0, 0, 0.9));
+    }
+  }
+
+  :global([data-user-color-scheme="dark"]) .dialog-paper {
+    background-color: #121110;
+    background-image: url("/assets/images/bg-pattern-dark.jpg");
+    box-shadow:
+      inset 0 0 28px rgba(0, 0, 0, 0.85),
+      inset 0 0 2px rgba(255, 255, 255, 0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .dialog-paper {
+      background-color: #121110;
+      background-image: url("/assets/images/bg-pattern-dark.jpg");
+      box-shadow:
+        inset 0 0 28px rgba(0, 0, 0, 0.85),
+        inset 0 0 2px rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  /* Inner Woodcut Engraved Double Frame */
+  .dialog-paper::before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border: 1.5px solid var(--text-color);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .dialog-paper::after {
+    content: '';
+    position: absolute;
+    inset: 13px;
+    border: 1px dashed var(--text-color);
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Corner Rosettes in Inner Frame */
+  .paper-corner-rosette {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 2;
+    line-height: 1;
+  }
+  .rosette-tl { top: 17px; left: 17px; }
+  .rosette-tr { top: 17px; right: 17px; }
+  .rosette-bl { bottom: 17px; left: 17px; }
+  .rosette-br { bottom: 17px; right: 17px; }
+
+  :global([data-user-color-scheme="dark"]) .paper-corner-rosette {
+    color: var(--accent);
+    opacity: 0.9;
+    text-shadow: 0 0 6px rgba(168, 108, 24, 0.4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .paper-corner-rosette {
+      color: var(--accent);
+      opacity: 0.9;
+      text-shadow: 0 0 6px rgba(168, 108, 24, 0.4);
+    }
+  }
+
+  /* CRINKLED / FOLDED PAPER OPENING ANIMATION */
+  .deployments-dialog[open] .dialog-paper {
+    animation: paperUnfold 0.68s cubic-bezier(0.18, 0.89, 0.32, 1.15) forwards;
+  }
+
+  .deployments-dialog.is-closing .dialog-paper {
+    animation: paperFoldClose 0.26s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes paperUnfold {
+    0% {
+      opacity: 0;
+      /* Folded crinkled pamphlet viewed in 3D perspective */
+      transform: perspective(1400px) rotateX(28deg) rotateY(-18deg) rotateZ(-7deg) scale(0.66) translateY(55px);
+      filter: brightness(0.9) contrast(1.18);
+    }
+    30% {
+      /* First diagonal crease snap */
+      opacity: 0.85;
+      transform: perspective(1400px) rotateX(-13deg) rotateY(10deg) rotateZ(3.2deg) scale(0.86) translateY(-12px);
+      filter: brightness(1.04) contrast(1.08);
+    }
+    60% {
+      /* Cross fold expands, paper springs past resting size */
+      opacity: 0.98;
+      transform: perspective(1400px) rotateX(5deg) rotateY(-4deg) rotateZ(-1.4deg) scale(1.022) translateY(3px);
+      filter: brightness(1.02) contrast(1.02);
+    }
+    82% {
+      /* Gentle paper flutter recoil */
+      transform: perspective(1400px) rotateX(-1.2deg) rotateY(1deg) rotateZ(-0.6deg) scale(0.996) translateY(-1px);
+      filter: brightness(1) contrast(1);
+    }
+    100% {
+      opacity: 1;
+      /* Resting flush on desk with organic slight hand-cut angle */
+      transform: perspective(1400px) rotateX(0deg) rotateY(0deg) rotateZ(-0.35deg) scale(1) translateY(0);
+      filter: brightness(1) contrast(1);
+    }
+  }
+
+  @keyframes paperFoldClose {
+    0% {
+      opacity: 1;
+      transform: perspective(1400px) rotateX(0deg) rotateY(0deg) rotateZ(-0.35deg) scale(1) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: perspective(1400px) rotateX(24deg) rotateY(-14deg) rotateZ(-6deg) scale(0.72) translateY(40px);
+    }
+  }
+
+  /* Paper Fold Creases & Shadow Valleys */
+  .paper-crease-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background:
+      /* Horizontal tri-fold crease lines */
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 32.5%,
+        rgba(0, 0, 0, 0.08) 33.2%,
+        rgba(255, 255, 255, 0.18) 33.6%,
+        rgba(0, 0, 0, 0.12) 34.2%,
+        transparent 35.5%,
+        transparent 65.5%,
+        rgba(0, 0, 0, 0.07) 66.2%,
+        rgba(255, 255, 255, 0.16) 66.6%,
+        rgba(0, 0, 0, 0.11) 67.2%,
+        transparent 68.5%,
+        transparent 100%
+      ),
+      /* Vertical center fold line */
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 48.8%,
+        rgba(0, 0, 0, 0.09) 49.6%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(0, 0, 0, 0.13) 50.6%,
+        transparent 51.6%,
+        transparent 100%
+      ),
+      /* Diagonal tension fold */
+      linear-gradient(
+        132deg,
+        transparent 0%,
+        transparent 24%,
+        rgba(0, 0, 0, 0.06) 25.2%,
+        rgba(255, 255, 255, 0.14) 25.8%,
+        rgba(0, 0, 0, 0.08) 26.5%,
+        transparent 28%,
+        transparent 100%
+      );
+    mix-blend-mode: multiply;
+    opacity: 0.65;
+  }
+
+  :global([data-user-color-scheme="dark"]) .paper-crease-overlay {
+    mix-blend-mode: soft-light;
+    opacity: 0.42;
+  }
+
+  .deployments-dialog[open] .paper-crease-overlay {
+    animation: creasesFlatten 0.68s cubic-bezier(0.18, 0.89, 0.32, 1.15) forwards;
+  }
+
+  @keyframes creasesFlatten {
+    0% {
+      opacity: 0.95;
+      transform: scale(0.92) skewX(2deg);
+    }
+    35% {
+      opacity: 0.78;
+      transform: scale(0.97) skewX(-1deg);
+    }
+    100% {
+      opacity: 0.48;
+      transform: scale(1) skewX(0deg);
+    }
+  }
+
+  /* Specular Light Sheen Sweeping Across the Unfolding Paper */
+  .paper-sheen-sweep {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 48%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.25) 52%,
+      transparent 70%,
+      transparent 100%
+    );
+    background-size: 260% 100%;
+    opacity: 0;
+    mix-blend-mode: overlay;
+  }
+
+  .deployments-dialog[open] .paper-sheen-sweep {
+    animation: sheenSweepAcross 0.7s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  }
+
+  @keyframes sheenSweepAcross {
+    0% {
+      opacity: 0;
+      background-position: 130% 0;
+    }
+    25% {
+      opacity: 0.85;
+    }
+    60% {
+      opacity: 0.9;
+      background-position: 35% 0;
+    }
+    100% {
+      opacity: 0;
+      background-position: -30% 0;
+    }
+  }
+
+  /* Scrollable Interior Container */
+  .dialog-scroll-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 88vh;
+    padding: 1.7rem 1.9rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 4;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) transparent;
+  }
+
+  .deployments-dialog[open] .dialog-scroll-container {
+    animation: inkReveal 0.5s ease 0.12s both;
+  }
+
+  @keyframes inkReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Custom Engraved Scrollbar */
+  .dialog-scroll-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .dialog-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 1.5rem 0;
+  }
+
+  .dialog-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    border-radius: 1px;
+    opacity: 0.7;
+  }
+
+  .dialog-scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
+  }
+
+  /* Folio Header */
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .dialog-folio-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    color: var(--text-color);
+    margin-bottom: 0.2rem;
+  }
+
+  .folio-fleuron {
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .dialog-title {
+    font-family: 'SydoniaAtramentiquaBold', 'Cinzel', 'Times New Roman', serif;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .dialog-badge-container {
+    margin-top: 0.4rem;
+  }
+
+  .dialog-badge {
+    display: inline-block;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border: 1px solid var(--text-color);
+    background: var(--bg-color);
+  }
+
+  /* Circular Seal Close Button */
+  .dialog-close-btn {
+    background: transparent;
+    border: 1.5px solid var(--text-color);
+    color: var(--text-color);
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 180ms ease;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+  }
+
+  .dialog-close-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.08) rotate(90deg);
+  }
+
+  /* Engraved Divider Rule with Centered Fleuron */
+  .folio-etched-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0.65rem 0 1rem 0;
+  }
+
+  .folio-etched-rule .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--text-color) 20%,
+      var(--text-color) 80%,
+      transparent
+    );
+    opacity: 0.35;
+  }
+
+  .folio-etched-rule .rule-fleuron {
+    color: var(--accent);
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .dialog-content-area {
+    margin: 0.35rem 0 0.85rem 0;
+  }
+
+  .deployments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Archival Catalogue Ledger Row */
+  .deployment-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    border: 1px solid var(--text-color);
+    padding: 0.55rem 0.85rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    position: relative;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  }
+
+  :global([data-user-color-scheme="dark"]) .deployment-row {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  .deployment-row:hover {
+    box-shadow: 3px 3px 0 var(--text-color);
+    transform: translate(-1.5px, -1.5px);
+    border-color: var(--accent);
+  }
+
+  .deployment-main {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Seal-Framed Logo */
+  .deployment-logo-frame {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border: 1.5px solid var(--text-color);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .deployment-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .deployment-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .deployment-name {
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.98rem;
+    color: var(--text-color);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+
+  .deployment-tag {
+    font-size: 0.68rem;
+    font-family: 'SydoniaAtramentiquaBold', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1px 6px;
+    border: 1px solid var(--text-color);
+    opacity: 0.75;
+    line-height: 1.2;
+  }
+
+  /* Archival Call-Slip Link Button */
+  .deployment-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border: 1.5px solid var(--text-color);
+    padding: 0.3rem 0.65rem;
+    transition: all 120ms ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .deployment-link:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  .external-arrow {
+    transform: translateY(-0.5px);
+  }
+
+  /* Folio Footer / Colophon */
+  .dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--text-color);
+    margin-top: 0.5rem;
+  }
+
+  .footer-colophon {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    color: var(--text-color);
+  }
+
+  .colophon-fleuron {
+    color: var(--accent);
+    font-size: 0.78rem;
+  }
+
+  .dialog-footer-btn {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: 1.5px solid var(--text-color);
+    padding: 0.4rem 1.1rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 120ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .dialog-footer-btn:hover {
+    opacity: 0.88;
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0 var(--text-color);
+  }
+
+  @media screen and (max-width: 600px) {
+    .dialog-scroll-container {
+      padding: 1.3rem 1.1rem;
+    }
+
+    .deployment-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      padding: 0.55rem 0.65rem;
+    }
+
+    .deployment-main {
+      width: 100%;
+    }
+
+    .deployment-name {
+      white-space: normal;
+    }
+
+    .deployment-link {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .footer-colophon {
+      display: none;
+    }
+
+    .dialog-footer {
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('deployments-dialog') as HTMLDialogElement | null;
+  const paper = document.getElementById('dialog-paper');
+  const titleEl = document.getElementById('dialog-title');
+  const badgeEl = document.getElementById('dialog-badge');
+  const closeBtn = document.getElementById('dialog-close-btn');
+  const footerCloseBtn = document.getElementById('dialog-footer-close-btn');
+  const groups = document.querySelectorAll<HTMLElement>('.platform-group');
+
+  let isClosing = false;
+
+  function openDeployments(slug: string) {
+    if (!dialog) return;
+
+    groups.forEach((g) => {
+      if (g.id === `group-${slug}`) {
+        g.hidden = false;
+        if (titleEl) titleEl.textContent = g.getAttribute('data-title') || 'Platform Deployments';
+        if (badgeEl) badgeEl.textContent = g.getAttribute('data-count') || 'Live Deployments';
+      } else {
+        g.hidden = true;
+      }
+    });
+
+    if (typeof dialog.showModal === 'function') {
+      dialog.classList.remove('is-closing');
+      dialog.showModal();
+      document.body.classList.add('dialog-open');
+      const scrollContainer = dialog.querySelector('.dialog-scroll-container');
+      if (scrollContainer) scrollContainer.scrollTop = 0;
+    }
+  }
+
+  function closeDeployments() {
+    if (!dialog || isClosing || !dialog.open) return;
+    isClosing = true;
+    dialog.classList.add('is-closing');
+    setTimeout(() => {
+      if (typeof dialog.close === 'function') {
+        dialog.close();
+      }
+      dialog.classList.remove('is-closing');
+      document.body.classList.remove('dialog-open');
+      isClosing = false;
+    }, 260);
+  }
+
+  document.querySelectorAll<HTMLElement>('.trigger-deployments-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const slug = btn.getAttribute('data-project-slug');
+      if (slug) openDeployments(slug);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDeployments);
+  if (footerCloseBtn) footerCloseBtn.addEventListener('click', closeDeployments);
+
+  if (dialog) {
+    dialog.addEventListener('click', (e) => {
+      if (paper && !paper.contains(e.target as Node)) {
+        closeDeployments();
+      }
+    });
+
+    dialog.addEventListener('cancel', (e) => {
+      e.preventDefault();
+      closeDeployments();
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('dialog-open');
+      dialog.classList.remove('is-closing');
+      isClosing = false;
+    });
+  }
+</script>

@@ -1,0 +1,185 @@
+---
+import Footer from '../components/Footer.astro';
+import FloatingMenu from '../components/FloatingMenu.astro';
+import BookplateSplash from '../components/BookplateSplash.astro';
+import SilkRibbon from '../components/SilkRibbon.astro';
+import CommandPalette from '../components/CommandPalette.astro';
+
+interface Props {
+  pageTitle?: string;
+  pageDescription?: string;
+  pagePath?: string;
+  bodyClass?: string;
+  date?: string;
+  ogImage?: string;
+  replaceTitle?: string;
+  later?: string;
+  earlier?: string;
+  showSplash?: boolean;
+}
+
+const {
+  pageTitle = 'Home',
+  pageDescription = 'Hamza Jhad is a software developer crafting robust systems, web applications, and digital tools.',
+  pagePath = '',
+  bodyClass = 'home',
+  date,
+  ogImage,
+  replaceTitle,
+  later,
+  earlier,
+  showSplash,
+} = Astro.props;
+
+const shouldShowSplash = showSplash ?? (bodyClass === 'home' || Astro.url.searchParams.has('splash'));
+
+const docTitle = bodyClass === 'home' ? 'Hamza Jhad' : `${pageTitle} | Hamza Jhad`;
+
+const siteUrl = Astro.site ? Astro.site.origin : 'https://hamzajhad.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+
+let ogUrl = canonicalUrl;
+let ogTitleValue = 'Hamza Jhad';
+
+if (bodyClass === 'thought-detail') {
+  ogUrl = `${siteUrl}/thoughts/entries/${pagePath.replace(/^thoughts\/entries\//, '')}`;
+  ogTitleValue = pageTitle;
+} else if (bodyClass !== 'home') {
+  ogUrl = `${siteUrl}/${pagePath.replace(/^\//, '')}`;
+  ogTitleValue = pageTitle;
+}
+
+const ogImageSrc = ogImage
+  ? `${siteUrl}/assets/images/OG/${ogImage}.jpg`
+  : `${siteUrl}/assets/images/OG/hamza-jhad-og.jpg`;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Hamza Jhad" />
+
+    <title>{docTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script is:inline>
+      if (localStorage.getItem("user-color-scheme") !== null) {
+        document.documentElement.setAttribute("data-user-color-scheme", localStorage.getItem("user-color-scheme"));
+      }
+
+      // Check if user has already seen the frontispiece splash
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var forceSplash = params.has('splash');
+          var seen = sessionStorage.getItem('folio_splash_seen') || localStorage.getItem('folio_splash_seen');
+          if (seen && !forceSplash) {
+            document.documentElement.classList.add('skip-splash');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preload" href="/assets/fonts/SydoniaAtramentiquaRegular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/ringbearer.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <slot name="styles" />
+
+    {bodyClass !== 'utility' && (
+      <>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Hamza Jhad" />
+        <meta content={pageDescription} property="og:description" />
+        <meta content={ogUrl} property="og:url" />
+        <meta content={ogTitleValue} property="og:title" />
+        <meta content={ogImageSrc} property="og:image" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={ogTitleValue} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImageSrc} />
+      </>
+    )}
+  </head>
+
+  <body class={`no-js ${bodyClass}`.trim()}>
+    {shouldShowSplash && <BookplateSplash />}
+
+    <SilkRibbon />
+    <CommandPalette />
+
+    <a class="skip-link" href="#nav">Jump to navigation</a>
+    <FloatingMenu bodyClass={bodyClass} />
+
+    <div class="app">
+      <header class={`header-main ${bodyClass}`.trim()}>
+        <div class="container">
+          {bodyClass === 'thought-detail' ? (
+            replaceTitle ? (
+              <h1 id="content">{replaceTitle}</h1>
+            ) : (
+              <>
+                <div class="date"><small>{date}</small></div>
+                <h1 id="content">{pageTitle}</h1>
+              </>
+            )
+          ) : (
+            <slot name="header" />
+          )}
+        </div>
+      </header>
+
+      <main id="content">
+        {bodyClass === 'thought-detail' ? (
+          <div class="container">
+            <div class="content">
+              <slot />
+            </div>
+            <nav class="thoughts-nav">
+              <div class="later">
+                {later && (
+                  <>
+                    <span>←</span>
+                    <a class="later" href={`/thoughts/entries/${later}`}>Newer</a>
+                  </>
+                )}
+              </div>
+              <div class="back">
+                <a href="/thoughts">All</a>
+              </div>
+              <div class="earlier">
+                {earlier && (
+                  <>
+                    <a class="earlier" href={`/thoughts/entries/${earlier}`}>Older</a>
+                    <span>→</span>
+                  </>
+                )}
+              </div>
+            </nav>
+          </div>
+        ) : (
+          <slot />
+        )}
+      </main>
+
+      {bodyClass !== 'home' && (
+        <Footer bodyClass={bodyClass} />
+      )}
+    </div>
+
+    <script src="../scripts/main.ts"></script>
+    <slot name="scripts" />
+  </body>
+</html>

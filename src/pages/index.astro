@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MainNav from '../components/MainNav.astro';
+---
+
+<Layout
+  pageTitle="Home"
+  pageDescription="Hamza Jhad is a software developer crafting robust systems, web applications, and digital tools."
+  bodyClass="home"
+>
+  <Fragment slot="header">
+    <h1>Hamza <br />Jhad</h1>
+    <h2>Software Developer</h2>
+  </Fragment>
+
+  <div class="container">
+    <MainNav bodyClass="home" />
+  </div>
+</Layout>

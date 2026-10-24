@@ -1,0 +1,32 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import thoughts from '../../../data/thoughts.json';
+import type { Thought } from '../../../types/thought';
+
+export function getStaticPaths() {
+  return (thoughts as Thought[]).map((thought) => ({
+    params: { slug: thought.slug },
+    props: { thought },
+  }));
+}
+
+interface Props {
+  thought: Thought;
+}
+
+const { thought } = Astro.props;
+---
+
+<Layout
+  pageTitle={thought.title}
+  pageDescription={thought.description}
+  pagePath={`thoughts/entries/${thought.slug}`}
+  bodyClass="thought-detail"
+  date={thought.date}
+  ogImage={thought.ogImage}
+  replaceTitle={thought.replaceTitle}
+  later={thought.later}
+  earlier={thought.earlier}
+>
+  <Fragment set:html={thought.contentHtml} />
+</Layout>

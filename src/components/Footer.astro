@@ -1,0 +1,61 @@
+---
+import MainNav from './MainNav.astro';
+
+interface Props {
+  bodyClass?: string;
+}
+
+const { bodyClass = '' } = Astro.props;
+---
+
+<footer class={`main-footer ${bodyClass}`.trim()}>
+  <div class="footer-links">
+    <nav class="icons">
+      <a class="icon github" href="https://github.com/hamzshaa" title="GitHub" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.16 20.16">
+          <path d="M10.04,1.32C5.19,1.32,1.16,5.27,1.16,10.2c0,3.77,2.42,7.18,6.1,8.43.27.09.54,0,.63-.27v-1.7c-2.51.54-3.05-1.17-3.05-1.17-.18-.54-.54-.99-.99-1.25-.72-.63.09-.63.09-.63.54.09,1.08.45,1.44.9.45.9,1.61,1.25,2.51.81h.09c.09-.45.27-.81.54-1.17-2.06-.18-4.13-.99-4.13-4.3,0-.9.36-1.7.9-2.42-.27-.81-.27-1.61.09-2.42,0,0,.72-.18,2.51.9.72-.09,1.44-.18,2.15-.18.81,0,1.53.09,2.24.36,1.7-1.17,2.51-.9,2.51-.9.27.72.36,1.61.09,2.42.54.63.9,1.53.9,2.42,0,3.5-2.06,4.13-4.04,4.3.45.45.63.99.63,1.61v2.42c0,.18.09.54.63.45,3.59-1.25,6.01-4.66,6.01-8.43-.09-5.03-4.03-8.98-8.97-9.07Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.01"/>
+        </svg>
+      </a>
+      <a class="icon linkedin" href="https://www.linkedin.com/in/hamza-jhad-ba5b36291" title="LinkedIn" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.16 20.16">
+          <rect x="2.08" y="2.08" width="16" height="16" rx="3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"/>
+          <line x1="6.5" y1="9.2" x2="6.5" y2="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+          <circle cx="6.5" cy="6.2" r="0.8" fill="currentColor"/>
+          <line x1="10.2" y1="9.2" x2="10.2" y2="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+          <path d="M10.2,12.2c0-1.8 1.1-2.9 2.7-2.9s2.7 1.1 2.7 2.9v2.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+        </svg>
+      </a>
+      <a class="icon email" href="mailto:trident32000@gmail.com" title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.16 20.16">
+          <rect x="2.2" y="4.5" width="15.76" height="11.16" rx="2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"/>
+          <path d="M2.8 5.6 L10.08 11.2 L17.36 5.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"/>
+        </svg>
+      </a>
+      <a class="icon telegram" href="https://t.me/hamZZsha" title="Telegram" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.16 20.16">
+          <circle cx="10.08" cy="10.08" r="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"/>
+          <path d="M5.8 10.1 L14.4 6.6 L12.5 14 L9.9 11.6 L8.2 13.1 L8.5 11.3 L14.4 6.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.05"/>
+        </svg>
+      </a>
+      <a class="icon whatsapp" href="https://wa.me/251929248080" title="WhatsApp" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.16 20.16">
+          <path d="M10.08 2.5 C5.9 2.5 2.5 5.9 2.5 10.08 C2.5 11.5 2.9 12.8 3.6 14 L2.5 17.66 L6.3 16.6 C7.4 17.3 8.7 17.66 10.08 17.66 C14.26 17.66 17.66 14.26 17.66 10.08 C17.66 5.9 14.26 2.5 10.08 2.5 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"/>
+          <path d="M7 6.8 C6.4 7.2 6.2 8 6.8 9.5 C7.5 11.2 8.9 12.6 10.6 13.3 C12.1 13.9 12.9 13.7 13.3 13.1 L14 12.2 C14.2 11.9 14.1 11.5 13.8 11.3 L12.5 10.5 C12.2 10.3 11.8 10.4 11.6 10.7 L11.2 11.2 C10.8 11 9.2 9.4 9 9 L9.5 8.6 C9.8 8.4 9.9 8 9.7 7.7 L8.9 6.4 C8.7 6.1 8.3 6 8 6.2 Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.05"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+  <MainNav bodyClass={bodyClass} />
+</footer>
+
+<style>
+  .footer-links {
+    justify-content: center;
+  }
+  .icons {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

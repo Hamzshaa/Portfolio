@@ -1,0 +1,996 @@
+---
+// src/components/CommandPalette.astro
+---
+
+<!-- Global Command Palette Modal (Bookish Folio Parchment) -->
+<dialog id="global-command-palette" class="global-palette-dialog" aria-label="Command Palette">
+  <div class="dialog-paper" id="palette-paper">
+    <!-- Crinkle Creases & Sheen Sweeps -->
+    <div class="paper-crease-overlay" aria-hidden="true"></div>
+    <div class="paper-sheen-sweep" aria-hidden="true"></div>
+
+    <!-- Bookplate Corner Rosettes -->
+    <span class="paper-corner-rosette rosette-tl" aria-hidden="true">❖</span>
+    <span class="paper-corner-rosette rosette-tr" aria-hidden="true">❖</span>
+    <span class="paper-corner-rosette rosette-bl" aria-hidden="true">❖</span>
+    <span class="paper-corner-rosette rosette-br" aria-hidden="true">❖</span>
+
+    <div class="dialog-scroll-container">
+      <!-- Folio Header -->
+      <div class="palette-header">
+        <div class="dialog-folio-meta">
+          <span class="folio-fleuron">❧</span>
+          <span class="folio-label">FOLIO INDEX · COMMAND DISPATCH</span>
+          <span class="folio-fleuron">❧</span>
+        </div>
+        <button
+          type="button"
+          class="dialog-close-btn"
+          id="close-palette-esc"
+          aria-label="Close command palette (Esc)"
+          title="Close (Esc)"
+        >
+          <span class="close-symbol" aria-hidden="true">✕</span>
+        </button>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="palette-input-wrap">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="global-palette-input"
+          class="palette-input"
+          placeholder="Search chapters, folio entries, actions..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <kbd class="esc-badge" id="close-palette-kbd">Esc</kbd>
+      </div>
+
+      <!-- Engraved Etched Rule -->
+      <div class="folio-etched-rule" aria-hidden="true">
+        <span class="rule-line"></span>
+        <span class="rule-fleuron">❦</span>
+        <span class="rule-line"></span>
+      </div>
+
+      <!-- Results List -->
+      <div class="palette-results" id="global-palette-results" role="listbox">
+        <!-- Section: Navigation -->
+        <div class="palette-group-title">Chapters & Navigation</div>
+        
+        <a href="/about" class="palette-item" data-search="about bio developer history profile chapter 1" role="option">
+          <div class="item-left">
+            <span class="item-roman">I.</span>
+            <span class="item-label">About the Developer</span>
+          </div>
+          <span class="item-badge">Folio I</span>
+        </a>
+
+        <a href="/work" class="palette-item" data-search="work projects systems rust go software engineering code chapter 2" role="option">
+          <div class="item-left">
+            <span class="item-roman">II.</span>
+            <span class="item-label">Work & Systems Architecture</span>
+          </div>
+          <span class="item-badge">Folio II</span>
+        </a>
+
+        <a href="/technologies" class="palette-item" data-search="technologies stack rust go typescript postgres redis linux docker chapter 3" role="option">
+          <div class="item-left">
+            <span class="item-roman">III.</span>
+            <span class="item-label">Technologies & Languages</span>
+          </div>
+          <span class="item-badge">Folio III</span>
+        </a>
+
+        <a href="/timeline" class="palette-item" data-search="timeline history career milestones experience chapter 4" role="option">
+          <div class="item-left">
+            <span class="item-roman">IV.</span>
+            <span class="item-label">Career Timeline & Milestones</span>
+          </div>
+          <span class="item-badge">Folio IV</span>
+        </a>
+
+
+
+
+
+        <!-- Section: Quick Actions -->
+        <div class="palette-group-title">Quick Actions</div>
+
+        <button type="button" class="palette-item action-item" id="pal-action-email" data-search="copy email send reach out hire hamzshaa trident32000" role="option">
+          <div class="item-left">
+            <span class="action-icon">✉</span>
+            <span class="item-label">Copy Email (trident32000@gmail.com)</span>
+          </div>
+          <span class="item-badge action-badge">Copy</span>
+        </button>
+
+        <button type="button" class="palette-item action-item" id="pal-action-github" data-search="github profile code repository git hamzshaa" role="option">
+          <div class="item-left">
+            <span class="action-icon">🐙</span>
+            <span class="item-label">Copy GitHub URL (github.com/hamzshaa)</span>
+          </div>
+          <span class="item-badge action-badge">Copy</span>
+        </button>
+
+        <button type="button" class="palette-item action-item" id="pal-action-theme" data-search="theme dark light toggle color scheme mode" role="option">
+          <div class="item-left">
+            <span class="action-icon">🌓</span>
+            <span class="item-label">Toggle Color Scheme (Dark / Light)</span>
+          </div>
+          <span class="item-badge action-badge">Toggle</span>
+        </button>
+
+        <button type="button" class="palette-item action-item" id="pal-action-splash" data-search="splash bookplate ex libris frontispiece card open turn page paper animation" role="option">
+          <div class="item-left">
+            <span class="action-icon">❧</span>
+            <span class="item-label">Replay Ex-Libris Bookplate Splash</span>
+          </div>
+          <span class="item-badge action-badge">Replay</span>
+        </button>
+
+        <button type="button" class="palette-item action-item" id="pal-action-top" data-search="top scroll home bookmark" role="option">
+          <div class="item-left">
+            <span class="action-icon">↑</span>
+            <span class="item-label">Scroll to Top of Folio</span>
+          </div>
+          <span class="item-badge action-badge">Jump</span>
+        </button>
+      </div>
+
+      <!-- Folio Footer / Colophon -->
+      <div class="palette-footer">
+        <div class="footer-shortcuts">
+          <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
+          <span><kbd>Enter</kbd> Select</span>
+          <span><kbd>Esc</kbd> Close</span>
+        </div>
+        <span class="colophon-fleuron" aria-hidden="true">❧</span>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Floating minimal trigger button (Hidden on screens <= 768px) -->
+<div class="cmd-palette-trigger-bar">
+  <button
+    id="global-palette-trigger-btn"
+    class="cmd-minimal-btn"
+    title="Command Palette (Ctrl+K)"
+    aria-label="Open Command Palette (Ctrl+K)"
+  >
+    <span class="cmd-glyph">⌘</span>
+  </button>
+</div>
+
+<style>
+  /* Prevent background page scroll when dialog is active */
+  :global(body.dialog-open) {
+    overflow: hidden;
+  }
+
+  /* Command Palette Dialog: Authentic Antique Deckled Folio Parchment */
+  .global-palette-dialog {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    padding: 0;
+    max-width: 620px;
+    width: calc(100vw - 2.5rem);
+    max-height: 86vh;
+    margin: auto;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: visible;
+    outline: none;
+    filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.48))
+            drop-shadow(0 4px 12px rgba(0, 0, 0, 0.32));
+  }
+
+  .global-palette-dialog::backdrop {
+    background: radial-gradient(
+      circle at center,
+      rgba(15, 13, 10, 0.78) 0%,
+      rgba(8, 7, 5, 0.9) 100%
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.25s ease;
+  }
+
+  .global-palette-dialog.is-closing::backdrop {
+    opacity: 0;
+  }
+
+  /* The Organic Non-Rectangular Deckled Paper Folio Sheet */
+  .dialog-paper {
+    position: relative;
+    width: 100%;
+    max-height: 86vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    background-image: url("/assets/images/bg-pattern.jpg");
+    background-size: 1400px auto;
+    color: var(--text-color);
+    transform-origin: center center;
+    transform: rotate(-0.35deg);
+
+    /* Organic Deckled Edge (Imperfect, non-rectangular handmade parchment perimeter) */
+    clip-path: polygon(
+      0.3% 0.8%, 7% 0.2%, 14% 0.6%, 22% 0.1%, 31% 0.5%, 39% 0.2%, 48% 0.7%, 57% 0.1%, 66% 0.5%, 75% 0.2%, 84% 0.6%, 92% 0.1%, 99.4% 0.5%,
+      99.7% 6%, 99.3% 13%, 99.8% 21%, 99.4% 29%, 99.7% 38%, 99.3% 47%, 99.8% 56%, 99.4% 65%, 99.7% 74%, 99.3% 82%, 99.8% 91%, 99.5% 99.3%,
+      92% 99.7%, 84% 99.3%, 75% 99.8%, 66% 99.4%, 57% 99.7%, 48% 99.2%, 39% 99.7%, 30% 99.3%, 22% 99.8%, 14% 99.4%, 6% 99.7%, 0.5% 99.2%,
+      0.2% 92%, 0.7% 83%, 0.1% 74%, 0.6% 65%, 0.2% 56%, 0.7% 47%, 0.1% 38%, 0.6% 29%, 0.2% 21%, 0.7% 13%, 0.3% 6%
+    );
+
+    box-shadow:
+      inset 0 0 18px rgba(0, 0, 0, 0.15),
+      inset 0 0 3px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Dark mode: keep dialog deeply dark while illuminating the organic deckled paper perimeter and corners */
+  :global([data-user-color-scheme="dark"]) .global-palette-dialog {
+    filter: drop-shadow(0 0 1.5px rgba(240, 235, 225, 0.55))
+            drop-shadow(0 22px 50px rgba(0, 0, 0, 0.9));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .global-palette-dialog {
+      filter: drop-shadow(0 0 1.5px rgba(240, 235, 225, 0.55))
+              drop-shadow(0 22px 50px rgba(0, 0, 0, 0.9));
+    }
+  }
+
+  :global([data-user-color-scheme="dark"]) .dialog-paper {
+    background-color: #121110;
+    background-image: url("/assets/images/bg-pattern-dark.jpg");
+    box-shadow:
+      inset 0 0 28px rgba(0, 0, 0, 0.85),
+      inset 0 0 2px rgba(255, 255, 255, 0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .dialog-paper {
+      background-color: #121110;
+      background-image: url("/assets/images/bg-pattern-dark.jpg");
+      box-shadow:
+        inset 0 0 28px rgba(0, 0, 0, 0.85),
+        inset 0 0 2px rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  /* Inner Woodcut Engraved Double Frame */
+  .dialog-paper::before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border: 1.5px solid var(--text-color);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .dialog-paper::after {
+    content: '';
+    position: absolute;
+    inset: 13px;
+    border: 1px dashed var(--text-color);
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Corner Rosettes in Inner Frame */
+  .paper-corner-rosette {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 2;
+    line-height: 1;
+  }
+  .rosette-tl { top: 17px; left: 17px; }
+  .rosette-tr { top: 17px; right: 17px; }
+  .rosette-bl { bottom: 17px; left: 17px; }
+  .rosette-br { bottom: 17px; right: 17px; }
+
+  :global([data-user-color-scheme="dark"]) .paper-corner-rosette {
+    color: var(--accent);
+    opacity: 0.9;
+    text-shadow: 0 0 6px rgba(168, 108, 24, 0.4);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .paper-corner-rosette {
+      color: var(--accent);
+      opacity: 0.9;
+      text-shadow: 0 0 6px rgba(168, 108, 24, 0.4);
+    }
+  }
+
+  /* CRINKLED / FOLDED PAPER OPENING ANIMATION */
+  .global-palette-dialog[open] .dialog-paper {
+    animation: paperUnfold 0.68s cubic-bezier(0.18, 0.89, 0.32, 1.15) forwards;
+  }
+
+  .global-palette-dialog.is-closing .dialog-paper {
+    animation: paperFoldClose 0.26s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes paperUnfold {
+    0% {
+      opacity: 0;
+      transform: perspective(1400px) rotateX(28deg) rotateY(-18deg) rotateZ(-7deg) scale(0.66) translateY(55px);
+      filter: brightness(0.9) contrast(1.18);
+    }
+    30% {
+      opacity: 0.85;
+      transform: perspective(1400px) rotateX(-13deg) rotateY(10deg) rotateZ(3.2deg) scale(0.86) translateY(-12px);
+      filter: brightness(1.04) contrast(1.08);
+    }
+    60% {
+      opacity: 0.98;
+      transform: perspective(1400px) rotateX(5deg) rotateY(-4deg) rotateZ(-1.4deg) scale(1.022) translateY(3px);
+      filter: brightness(1.02) contrast(1.02);
+    }
+    82% {
+      transform: perspective(1400px) rotateX(-1.2deg) rotateY(1deg) rotateZ(-0.6deg) scale(0.996) translateY(-1px);
+      filter: brightness(1) contrast(1);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1400px) rotateX(0deg) rotateY(0deg) rotateZ(-0.35deg) scale(1) translateY(0);
+      filter: brightness(1) contrast(1);
+    }
+  }
+
+  @keyframes paperFoldClose {
+    0% {
+      opacity: 1;
+      transform: perspective(1400px) rotateX(0deg) rotateY(0deg) rotateZ(-0.35deg) scale(1) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: perspective(1400px) rotateX(24deg) rotateY(-14deg) rotateZ(-6deg) scale(0.72) translateY(40px);
+    }
+  }
+
+  /* Paper Fold Creases & Shadow Valleys */
+  .paper-crease-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background:
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 32.5%,
+        rgba(0, 0, 0, 0.08) 33.2%,
+        rgba(255, 255, 255, 0.18) 33.6%,
+        rgba(0, 0, 0, 0.12) 34.2%,
+        transparent 35.5%,
+        transparent 65.5%,
+        rgba(0, 0, 0, 0.07) 66.2%,
+        rgba(255, 255, 255, 0.16) 66.6%,
+        rgba(0, 0, 0, 0.11) 67.2%,
+        transparent 68.5%,
+        transparent 100%
+      ),
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 48.8%,
+        rgba(0, 0, 0, 0.09) 49.6%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(0, 0, 0, 0.13) 50.6%,
+        transparent 51.6%,
+        transparent 100%
+      ),
+      linear-gradient(
+        132deg,
+        transparent 0%,
+        transparent 24%,
+        rgba(0, 0, 0, 0.06) 25.2%,
+        rgba(255, 255, 255, 0.14) 25.8%,
+        rgba(0, 0, 0, 0.08) 26.5%,
+        transparent 28%,
+        transparent 100%
+      );
+    mix-blend-mode: multiply;
+    opacity: 0.65;
+  }
+
+  :global([data-user-color-scheme="dark"]) .paper-crease-overlay {
+    mix-blend-mode: soft-light;
+    opacity: 0.42;
+  }
+
+  .global-palette-dialog[open] .paper-crease-overlay {
+    animation: creasesFlatten 0.68s cubic-bezier(0.18, 0.89, 0.32, 1.15) forwards;
+  }
+
+  @keyframes creasesFlatten {
+    0% {
+      opacity: 0.95;
+      transform: scale(0.92) skewX(2deg);
+    }
+    35% {
+      opacity: 0.78;
+      transform: scale(0.97) skewX(-1deg);
+    }
+    100% {
+      opacity: 0.48;
+      transform: scale(1) skewX(0deg);
+    }
+  }
+
+  /* Specular Light Sheen Sweeping Across the Unfolding Paper */
+  .paper-sheen-sweep {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 48%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.25) 52%,
+      transparent 70%,
+      transparent 100%
+    );
+    background-size: 260% 100%;
+    opacity: 0;
+    mix-blend-mode: overlay;
+  }
+
+  .global-palette-dialog[open] .paper-sheen-sweep {
+    animation: sheenSweepAcross 0.7s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  }
+
+  @keyframes sheenSweepAcross {
+    0% {
+      opacity: 0;
+      background-position: 130% 0;
+    }
+    25% {
+      opacity: 0.85;
+    }
+    60% {
+      opacity: 0.9;
+      background-position: 35% 0;
+    }
+    100% {
+      opacity: 0;
+      background-position: -30% 0;
+    }
+  }
+
+  /* Scrollable Interior Container */
+  .dialog-scroll-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 86vh;
+    padding: 1.4rem 1.6rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 4;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) transparent;
+  }
+
+  .global-palette-dialog[open] .dialog-scroll-container {
+    animation: inkReveal 0.5s ease 0.12s both;
+  }
+
+  @keyframes inkReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Folio Header */
+  .palette-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.65rem;
+  }
+
+  .dialog-folio-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    color: var(--text-color);
+  }
+
+  .folio-fleuron {
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  /* Circular Seal Close Button */
+  .dialog-close-btn {
+    background: transparent;
+    border: 1.5px solid var(--text-color);
+    color: var(--text-color);
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 180ms ease;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+  }
+
+  .dialog-close-btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.08) rotate(90deg);
+  }
+
+  /* Search Input Wrap */
+  .palette-input-wrap {
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--text-color);
+    background: rgba(0, 0, 0, 0.03);
+    gap: 0.75rem;
+  }
+
+  :global([data-user-color-scheme="dark"]) .palette-input-wrap {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .search-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .palette-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.98rem;
+    color: var(--text-color);
+    outline: none;
+    letter-spacing: 0.02em;
+  }
+
+  .palette-input::placeholder {
+    opacity: 0.55;
+    font-style: italic;
+    font-family: 'Times New Roman', serif;
+  }
+
+  .esc-badge {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--text-color);
+    border-radius: 2px;
+    opacity: 0.65;
+    cursor: pointer;
+  }
+
+  /* Engraved Divider Rule with Fleuron */
+  .folio-etched-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0 0.5rem 0;
+  }
+
+  .folio-etched-rule .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--text-color) 20%,
+      var(--text-color) 80%,
+      transparent
+    );
+    opacity: 0.35;
+  }
+
+  .folio-etched-rule .rule-fleuron {
+    color: var(--accent);
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .palette-results {
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 0.3rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color) transparent;
+  }
+
+  .palette-group-title {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.55rem 0.6rem 0.25rem;
+    opacity: 0.88;
+  }
+
+  .palette-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    text-align: left;
+    transition: all 100ms ease;
+    border-left: 2px solid transparent;
+  }
+
+  .palette-item:hover,
+  .palette-item.selected {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-left-color: var(--accent);
+  }
+
+  .item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .item-roman {
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    width: 22px;
+  }
+
+  .palette-item:hover .item-roman,
+  .palette-item.selected .item-roman {
+    color: var(--bg-color);
+    opacity: 0.9;
+  }
+
+  .action-icon {
+    font-size: 0.95rem;
+    color: var(--accent);
+    width: 22px;
+  }
+
+  .palette-item:hover .action-icon,
+  .palette-item.selected .action-icon {
+    color: var(--bg-color);
+  }
+
+  .item-badge {
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    padding: 0.1rem 0.45rem;
+    border: 1px solid var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .palette-item:hover .item-badge,
+  .palette-item.selected .item-badge {
+    border-color: var(--bg-color);
+    color: var(--bg-color);
+    opacity: 0.95;
+  }
+
+  .palette-footer {
+    padding: 0.6rem 0.2rem 0;
+    border-top: 1px solid var(--text-color);
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'SydoniaAtramentiquaBold', 'Times New Roman', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    opacity: 0.75;
+    text-transform: uppercase;
+  }
+
+  .footer-shortcuts {
+    display: flex;
+    gap: 0.9rem;
+  }
+
+  .footer-shortcuts kbd {
+    padding: 0.1rem 0.35rem;
+    border: 1px solid var(--text-color);
+    border-radius: 2px;
+  }
+
+  .colophon-fleuron {
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  /* Floating minimal trigger button (bottom-left) */
+  .cmd-palette-trigger-bar {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    z-index: 990;
+  }
+
+  .cmd-minimal-btn {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    opacity: 0.92;
+    transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease, opacity 140ms ease;
+  }
+
+  .cmd-minimal-btn:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  }
+
+  .cmd-minimal-btn:active {
+    transform: translateY(0);
+  }
+
+  .cmd-minimal-btn:focus-visible {
+    outline: 2px dotted var(--text-color);
+    outline-offset: 3px;
+    opacity: 1;
+  }
+
+  .cmd-glyph {
+    font-size: 0.85rem;
+    line-height: 1;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* RESPONSIVE: On small screens, hide ribbon and command palette */
+  @media screen and (max-width: 768px) {
+    .cmd-palette-trigger-bar {
+      display: none !important;
+    }
+
+    .dialog-scroll-container {
+      padding: 1.2rem 1.1rem;
+    }
+  }
+</style>
+
+<script>
+  // Global Command Palette Logic
+  const dialog = document.getElementById('global-command-palette') as HTMLDialogElement | null;
+  const input = document.getElementById('global-palette-input') as HTMLInputElement | null;
+  const resultsContainer = document.getElementById('global-palette-results');
+  const triggerBtn = document.getElementById('global-palette-trigger-btn');
+  const escBtn = document.getElementById('close-palette-esc');
+  const kbdEscBtn = document.getElementById('close-palette-kbd');
+
+  const actionEmail = document.getElementById('pal-action-email');
+  const actionGithub = document.getElementById('pal-action-github');
+  const actionTheme = document.getElementById('pal-action-theme');
+  const actionSplash = document.getElementById('pal-action-splash');
+  const actionTop = document.getElementById('pal-action-top');
+
+  let selectedIndex = -1;
+
+  const getVisibleItems = (): HTMLElement[] => {
+    if (!resultsContainer) return [];
+    return Array.from(resultsContainer.querySelectorAll('.palette-item'))
+      .filter((el) => (el as HTMLElement).style.display !== 'none') as HTMLElement[];
+  };
+
+  const updateSelection = (items: HTMLElement[], newIndex: number) => {
+    items.forEach((item) => item.classList.remove('selected'));
+    if (newIndex >= 0 && newIndex < items.length) {
+      selectedIndex = newIndex;
+      items[selectedIndex].classList.add('selected');
+      items[selectedIndex].scrollIntoView({ block: 'nearest' });
+    } else {
+      selectedIndex = -1;
+    }
+  };
+
+  const openPalette = () => {
+    if (!dialog) return;
+    dialog.classList.remove('is-closing');
+    document.body.classList.add('dialog-open');
+    dialog.showModal();
+    if (input) {
+      input.value = '';
+      input.focus();
+    }
+    // Show all items
+    resultsContainer?.querySelectorAll('.palette-item').forEach((item) => {
+      (item as HTMLElement).style.display = 'flex';
+    });
+    updateSelection(getVisibleItems(), 0);
+  };
+
+  const closePalette = () => {
+    if (!dialog || !dialog.open) return;
+    if (dialog.classList.contains('is-closing')) return;
+    dialog.classList.add('is-closing');
+    setTimeout(() => {
+      dialog.close();
+      dialog.classList.remove('is-closing');
+      document.body.classList.remove('dialog-open');
+    }, 240);
+  };
+
+  triggerBtn?.addEventListener('click', openPalette);
+  escBtn?.addEventListener('click', closePalette);
+  kbdEscBtn?.addEventListener('click', closePalette);
+
+  // Prevent instant dialog cancel and play fold-closing animation
+  dialog?.addEventListener('cancel', (e) => {
+    e.preventDefault();
+    closePalette();
+  });
+
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      closePalette();
+    }
+  });
+
+  // Global Keyboard Shortcuts (Ctrl+K, Cmd+K, /)
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      dialog?.open ? closePalette() : openPalette();
+    } else if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) {
+      e.preventDefault();
+      openPalette();
+    } else if (dialog?.open) {
+      const items = getVisibleItems();
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = selectedIndex < items.length - 1 ? selectedIndex + 1 : 0;
+        updateSelection(items, next);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = selectedIndex > 0 ? selectedIndex - 1 : items.length - 1;
+        updateSelection(items, prev);
+      } else if (e.key === 'Enter') {
+        if (selectedIndex >= 0 && items[selectedIndex]) {
+          e.preventDefault();
+          items[selectedIndex].click();
+        }
+      }
+    }
+  });
+
+  // Instant fuzzy filtering
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    const allItems = resultsContainer?.querySelectorAll('.palette-item');
+
+    allItems?.forEach((item) => {
+      const searchData = (item.getAttribute('data-search') || '') + ' ' + (item.textContent || '');
+      if (searchData.toLowerCase().includes(query)) {
+        (item as HTMLElement).style.display = 'flex';
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+
+    updateSelection(getVisibleItems(), 0);
+  });
+
+  // Action: Copy Email
+  actionEmail?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('trident32000@gmail.com');
+      const badge = actionEmail.querySelector('.item-badge');
+      if (badge) {
+        const prev = badge.textContent;
+        badge.textContent = 'Copied ✓';
+        setTimeout(() => {
+          badge.textContent = prev;
+          closePalette();
+        }, 600);
+      } else {
+        closePalette();
+      }
+    } catch {
+      closePalette();
+    }
+  });
+
+  // Action: Copy GitHub
+  actionGithub?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('https://github.com/hamzshaa');
+      const badge = actionGithub.querySelector('.item-badge');
+      if (badge) {
+        const prev = badge.textContent;
+        badge.textContent = 'Copied ✓';
+        setTimeout(() => {
+          badge.textContent = prev;
+          closePalette();
+        }, 600);
+      } else {
+        closePalette();
+      }
+    } catch {
+      closePalette();
+    }
+  });
+
+  // Action: Toggle Theme
+  actionTheme?.addEventListener('click', () => {
+    const toggleBtn = document.querySelector('.js-mode-toggle') as HTMLElement | null;
+    toggleBtn?.click();
+    closePalette();
+  });
+
+  // Action: Replay Ex-Libris Bookplate Splash
+  actionSplash?.addEventListener('click', () => {
+    closePalette();
+    const overlay = document.getElementById('bookplate-splash-overlay');
+    if (overlay) {
+      window.dispatchEvent(new CustomEvent('replay-splash'));
+    } else {
+      window.location.href = '/?splash=true';
+    }
+  });
+
+  // Action: Scroll to Top
+  actionTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closePalette();
+  });
+</script>

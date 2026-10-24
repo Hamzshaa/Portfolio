@@ -1,0 +1,930 @@
+---
+// src/components/BookplateSplash.astro
+---
+
+<div id="bookplate-splash-overlay" class="bookplate-splash-overlay" aria-label="Bookplate Frontispiece">
+  <div class="bookplate-stage">
+    <!-- Ambient shadow on the desk underneath the leaf -->
+    <div class="curl-ambient-shadow" id="curl-ambient-shadow"></div>
+
+    <!-- The 3D flexible curling leaf -->
+    <div class="bookplate-leaf" id="bookplate-leaf" role="button" tabindex="0">
+      
+      <!-- FRONT FACE: The Authentic Woodcut Bookplate Card -->
+      <div class="leaf-face leaf-front">
+        <!-- Left spine crease highlight -->
+        <div class="leaf-spine-crease" aria-hidden="true"></div>
+
+        <!-- Cylinder specular highlight sweep as the paper rolls -->
+        <div class="cylinder-light-sheen" aria-hidden="true"></div>
+        <!-- Cylinder crease shadow along the roll hollow -->
+        <div class="cylinder-crease-shadow" aria-hidden="true"></div>
+
+        <!-- Authentic Woodcut Ex-Libris Card -->
+        <div class="ex-libris-card">
+          <div class="ex-libris-outer-frame">
+            <div class="ex-libris-inner-frame">
+              
+              <!-- Corner Rosette Ornaments -->
+              <span class="corner-rosette rosette-tl">❖</span>
+              <span class="corner-rosette rosette-tr">❖</span>
+              <span class="corner-rosette rosette-bl">❖</span>
+              <span class="corner-rosette rosette-br">❖</span>
+
+              <!-- Top Banner & Subtitle -->
+              <div class="bookplate-banner">
+                <span class="banner-fleuron">❧</span>
+                <span class="banner-title">PORTFOLIO & ARCHIVE</span>
+                <span class="banner-fleuron">❧</span>
+              </div>
+              <div class="bookplate-subtitle">COLLECTED WORKS & SYSTEMS OF</div>
+
+              <!-- Sculpted Crimson & Gold Wax Monogram Seal -->
+              <div class="bookplate-seal-wrapper">
+                <div class="wax-seal" aria-label="Monogram Seal HJ">
+                  <div class="wax-seal-beaded-ring"></div>
+                  <div class="wax-seal-inner">
+                    <span class="wax-monogram">HJ</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Developer Name: Authentic Ringbearer Font Stroke-by-Stroke Calligraphy -->
+              <div class="bookplate-name-container" id="name-container">
+                <svg class="handwritten-name-svg" id="handwritten-svg" viewBox="0 0 305 52" aria-label="Hamza Jhad">
+                  <defs>
+                    <mask id="ringbearer-stroke-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="305" height="52">
+                      <rect x="0" y="0" width="305" height="52" fill="black" />
+                      <path class="mask-stroke st-1" d="M 18,5 L 18,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 84; stroke-dashoffset: 84; transition-delay: 0.03s;" />
+                      <path class="mask-stroke st-2" d="M 16,25 L 36,25" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 58; stroke-dashoffset: 58; transition-delay: 0.07s;" />
+                      <path class="mask-stroke st-3" d="M 34,5 L 34,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 84; stroke-dashoffset: 84; transition-delay: 0.11s;" />
+                      <path class="mask-stroke st-4" d="M 56,7 L 42,45" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 82; stroke-dashoffset: 82; transition-delay: 0.15s;" />
+                      <path class="mask-stroke st-5" d="M 56,7 L 75,45" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 86; stroke-dashoffset: 86; transition-delay: 0.20s;" />
+                      <path class="mask-stroke st-6" d="M 47,28 L 66,28" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 57; stroke-dashoffset: 57; transition-delay: 0.24s;" />
+                      <path class="mask-stroke st-7" d="M 77,45 L 77,5" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 83; stroke-dashoffset: 83; transition-delay: 0.29s;" />
+                      <path class="mask-stroke st-8" d="M 77,5 L 90,38" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 77; stroke-dashoffset: 77; transition-delay: 0.34s;" />
+                      <path class="mask-stroke st-9" d="M 90,38 L 101,5" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 76; stroke-dashoffset: 76; transition-delay: 0.38s;" />
+                      <path class="mask-stroke st-10" d="M 101,5 L 101,45" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 83; stroke-dashoffset: 83; transition-delay: 0.42s;" />
+                      <path class="mask-stroke st-11" d="M 111,7 L 131,7" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 61; stroke-dashoffset: 61; transition-delay: 0.46s;" />
+                      <path class="mask-stroke st-12" d="M 130,7 L 110,43" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 86; stroke-dashoffset: 86; transition-delay: 0.52s;" />
+                      <path class="mask-stroke st-13" d="M 110,43 L 131,43" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 62; stroke-dashoffset: 62; transition-delay: 0.55s;" />
+                      <path class="mask-stroke st-14" d="M 150,7 L 136,45" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 82; stroke-dashoffset: 82; transition-delay: 0.60s;" />
+                      <path class="mask-stroke st-15" d="M 150,7 L 169,45" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 86; stroke-dashoffset: 86; transition-delay: 0.63s;" />
+                      <path class="mask-stroke st-16" d="M 141,28 L 160,28" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 57; stroke-dashoffset: 57; transition-delay: 0.69s;" />
+                      <path class="mask-stroke st-17" d="M 183,6 L 198,6" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 53; stroke-dashoffset: 53; transition-delay: 0.73s;" />
+                      <path class="mask-stroke st-18" d="M 191,6 L 191,34 C 191,42 187,47 181,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 90; stroke-dashoffset: 90; transition-delay: 0.77s;" />
+                      <path class="mask-stroke st-19" d="M 205,5 L 205,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 84; stroke-dashoffset: 84; transition-delay: 0.83s;" />
+                      <path class="mask-stroke st-20" d="M 203,25 L 223,25" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 58; stroke-dashoffset: 58; transition-delay: 0.85s;" />
+                      <path class="mask-stroke st-21" d="M 221,5 L 221,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 84; stroke-dashoffset: 84; transition-delay: 0.90s;" />
+                      <path class="mask-stroke st-22" d="M 243,7 L 229,45" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 82; stroke-dashoffset: 82; transition-delay: 0.94s;" />
+                      <path class="mask-stroke st-23" d="M 243,7 L 262,45" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 86; stroke-dashoffset: 86; transition-delay: 0.99s;" />
+                      <path class="mask-stroke st-24" d="M 234,28 L 253,28" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 57; stroke-dashoffset: 57; transition-delay: 1.02s;" />
+                      <path class="mask-stroke st-25" d="M 264,5 L 264,46" stroke="white" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 84; stroke-dashoffset: 84; transition-delay: 1.08s;" />
+                      <path class="mask-stroke st-26" d="M 264,5 C 287,5 291,17 291,24 C 291,33 287,46 264,46" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray: 121; stroke-dashoffset: 121; transition-delay: 1.12s;" />
+                    </mask>
+                  </defs>
+
+                  <!-- Exact Ringbearer glyph paths extracted directly from ringbearer.woff -->
+                  <g class="ringbearer-glyphs" mask="url(#ringbearer-stroke-mask)" fill="currentColor">
+                    <path d="M39.29 6.42Q39.33 7.24 38.79 7.48Q38.57 7.54 38.18 7.72Q36.36 9.45 36.53 12.36Q36.60 13.75 36.20 16.31Q36.16 16.55 36.16 16.83Q36.16 17.37 36.33 18.26Q36.53 19.34 36.57 19.60Q36.64 20.27 36.34 23.18Q36.21 24.35 36.07 26.74Q36.03 27.46 36.12 28.73Q36.23 30.12 36.23 30.69L36.33 36.80Q36.47 38.30 36.62 39.80Q36.86 41.73 37.38 43.09Q37.55 43.59 38.46 43.94Q39.11 44.20 39.11 44.72Q39.11 45.04 38.83 45.41L29.85 45.41Q29.70 45.17 29.70 44.61Q29.70 44.11 30.15 43.76Q30.67 43.38 31.19 43Q31.87 42.38 31.96 41.70Q32.35 38.17 32.52 35.39Q32.56 34.81 32.50 33.74Q32.43 32.42 32.43 32.01Q32.43 31.68 32.28 29.71Q32.19 28.26 32.30 27.39Q32.39 26.74 32.02 25.09Q30.70 26.48 28.94 26.74Q27.59 26.93 26.96 26.87Q26.83 26.85 26.43 26.73Q26.03 26.61 25.92 26.61L21.61 26.61Q21.22 26.61 20.63 27.43Q19.77 28.62 20.16 30.21Q20.31 30.53 20.48 31.16Q20.52 31.49 20.44 32.12Q20.35 32.86 20.35 33.14Q20.35 33.70 20.43 34.81Q20.52 35.93 20.52 35.94L20.52 38.99Q20.52 40.16 20.94 41.58Q21.46 43.38 22.28 43.89Q22.78 44 23.49 44.50Q23.60 45.65 22.50 45.65Q22.06 45.65 21.31 45.41L17.38 45.41Q17.21 45.57 17.18 45.67Q16.95 45.67 16.06 45.74Q15.36 45.80 14.93 45.76Q14.76 45.76 14.25 45.68Q13.74 45.59 13.48 45.59Q13.34 44.54 14.34 44.03Q15.80 43.33 16.19 41.66Q16.32 40.32 16.43 38.97Q16.73 36.13 16.73 34.74Q16.73 34.50 16.51 33.77Q16.27 32.96 16.21 32.59Q16.17 32.20 16.32 31.34Q16.47 30.42 16.47 30.40L16.47 25.07Q16.47 24.98 16.60 24.59Q16.73 24.20 16.73 24.01Q16.73 23.66 16.30 21.40Q16.30 21.38 16.43 19.23Q16.51 18.02 16.43 17.06Q16.43 16.98 16.36 16.79Q16.29 16.59 16.29 16.48L16.29 11.99Q16.29 11.43 15.77 10.08Q15.21 8.63 14.82 8.48Q13.99 8.19 13.69 7.78Q13.58 7.61 13.65 7.11Q13.74 6.55 14.09 6.42Q14.43 6.29 15.99 6.11Q17.55 5.92 18.33 5.92L22.46 5.92Q23.54 6.37 23.54 7.09Q23.54 7.35 23.34 7.57Q23.11 7.65 22.76 7.82Q20.98 9.04 20.92 9.82Q20.83 11.08 20.57 14.01Q20.33 16.57 20.33 16.67L20.33 19.43Q20.33 21.66 20.54 22.60Q20.63 22.96 21.15 23.10Q21.20 23.12 22.63 23.20Q23.32 23.23 24.67 23.14Q26.14 23.03 26.03 23.03L29.01 23.03Q29.96 23.03 30.07 23.07Q30.26 23.12 31.09 23.72Q31.80 24.22 32.11 24.14Q32.78 23.29 32.78 21.51Q32.78 21.12 32.48 18.28Q32.43 17.72 32.43 15.27Q32.43 15.03 32.29 14.32Q32.15 13.60 32.15 13.10Q32.11 10.45 31.39 8.98Q31.09 8.37 30.15 7.78Q29.37 7.28 29.37 6.79Q29.37 6.70 29.39 6.61Q29.79 6.07 30.05 6.05Q31.06 5.94 32.24 6.15Q32.47 6.33 32.99 6.55Q33.50 6.59 34.27 6.28Q35.21 5.89 35.51 5.83Q35.92 5.85 36.73 5.79Q37.36 5.68 37.72 5.68Q38.66 5.68 39.29 6.42M17.23 16.96Q17.18 16.33 17.16 15.27Q17.47 12.66 16.92 9.91Q16.86 9.63 16.32 8.84Q16.66 11.08 16.66 12.47L16.66 16.85Q16.66 18.91 16.81 20.86Q17.16 18.34 17.23 16.96" />
+                    <path d="M76.27 43.24Q76.14 43.50 75.82 43.89Q75.60 44.05 75.26 44.07Q73.87 44.18 73.17 44.07Q72.93 43.87 72.41 43.57Q72.31 43.74 72.52 44.07Q72.22 44.03 71.66 43.89Q71.59 43.64 71.33 43.25Q70.12 43.37 69.51 43.20Q69.38 43.16 68.36 42.29Q67.23 41.33 65.75 39.02Q65.26 38.26 63.31 34.83Q63.04 34.35 63.04 33.92Q63.70 33.72 64.30 34.01Q64.56 34.31 65.06 34.68Q65.11 34.57 64.95 33.96Q64.91 33.98 65.41 33.98Q65.56 33.83 65.56 33.63Q64.37 33.29 62.35 33.09Q61.40 31.83 59.92 29.69Q59.86 29.47 59.64 29.04Q59.60 29.02 59.14 29.02L50.42 29.19Q49.84 29.15 49.62 29.69Q49.10 30.84 48.30 33.25Q47.88 35.22 47.88 35.94Q47.88 36.41 47.96 36.81Q48.04 37.21 49.40 38.06Q49.73 38.21 50.27 38.47Q50.46 38.58 50.46 39.02Q50.05 39.25 49.73 39.28Q49.88 39.27 47.90 39.15Q45.46 39.02 45.11 39.08Q42.31 39.41 41.59 39.19Q41.55 38.73 41.68 38.62Q41.72 38.58 42.72 37.80Q43.57 37.15 44.07 36.09Q44.80 34.57 45.39 33.14Q45.43 33.05 47.73 26.26Q48.14 24.76 49.19 21.81Q49.62 21.08 50.27 19.54Q50.42 18.60 50.75 17.02Q51.07 16.41 51.57 15.35Q51.85 14.55 52.53 12.92Q52.78 12.42 53.31 10.15Q52.31 9.62 51.11 9.21Q51.05 8.58 51.46 8.39Q53.50 8.52 53.83 8.52L56.43 8.52Q57.28 8.52 58.08 8.74Q58.21 8.98 58.42 10.13Q58.53 10.28 58.69 10.63Q58.86 10.97 59.07 12.14Q59.18 13.03 59.47 14.75Q59.92 16.76 61.13 20.32Q61.48 20.90 62.11 22.33Q62.35 23.25 62.94 25.03Q66.02 32.21 69.83 38.10Q70.53 38.99 71.91 40.75Q71.50 41.12 71.39 41.36Q71.46 41.70 71.74 41.70Q72.20 41.70 72.20 41.23Q73.17 41.86 74.13 42.49Q75.43 43.24 76.27 43.24M50.68 26.33L58.75 26.41L54.87 15.50Q54.04 17.07 52.50 20.23Q52.48 20.67 51.88 22.23Q51.88 22.51 51.83 22.94Q51.59 23.31 51.27 23.90Q51.22 24.48 50.96 25.55Q50.83 25.68 50.66 25.91Q50.64 25.98 50.72 26.18Q50.79 26.33 50.68 26.33" />
+                    <path d="M106.13 6.89Q105.76 7 104.96 7.30Q103.55 7.95 103 8.91Q102.64 9.54 102.87 11.38Q102.88 11.45 102.98 11.65Q103.07 11.84 103.07 11.93Q103.07 11.84 102.70 12.96Q102.53 13.53 102.53 14.14L102.53 17.30Q102.53 17.41 102.62 17.54Q102.72 17.67 102.74 17.74Q102.75 17.83 102.68 18.10Q102.61 18.37 102.61 18.48L102.61 21.45Q102.61 21.27 102.51 23.03Q102.42 24.59 102.46 25.22Q102.70 28.08 102.70 27.71L102.70 31.90Q102.70 32.92 102.57 33.83Q102.42 34.29 102.22 35.22Q102.07 36.35 102.22 37.13Q102.42 37.69 102.66 38.80Q102.57 39.79 102.62 41.47Q102.85 42.66 104.29 43.24Q104.79 43.42 105.85 44.03Q105.98 44.28 105.79 44.79Q105.59 45.31 105.28 45.30Q104.13 45.20 103 45.11Q101.03 44.96 100.43 44.98Q100.27 44.98 100.05 45.15Q99.84 45.31 99.80 45.31L97.19 45.31Q96.96 45.31 96.32 45.38Q95.68 45.44 95.31 45.44Q94.29 45.44 93.72 45.02Q93.70 44.44 93.88 43.61Q94.46 43.48 95.44 43Q96.11 42.42 96.96 41.18Q97.37 40.58 97.34 39.17Q97.34 39.04 97.22 38.70Q97.11 38.36 97.11 38.25L97.11 35.59Q97.11 35.94 97.06 33.87Q97 32.18 97.06 31.60Q97.24 29.75 96.98 28.37Q96.95 28.26 97.06 25.68Q97.13 24.68 97.26 22.64Q97.24 22.68 96.87 18.04Q96.85 17.65 96.65 17.02Q96.30 17.96 96.02 18.97Q95.33 21.23 94.13 25.70Q94.11 26.31 93.90 27.56Q93.42 28.73 92.64 31.16Q92.64 31.99 92.51 33.64Q92.08 35.07 91.25 37.99Q91.12 39.28 90.54 42.05Q90.29 42.90 89.51 44.35Q89.36 44.41 89.08 44.52Q88.43 44.85 87.39 44.74Q87.21 44.39 86.91 43.72Q86.52 41.99 85.63 38.54Q85.33 38.10 84.85 36.98Q84.94 36.13 84.81 34.66Q84.35 33.37 83.72 32.92Q83.75 32.53 83.75 32.12Q83.75 29.80 82.57 28.60Q82.44 28.08 82.18 27.19Q81.88 25.72 81.36 23.22Q81.03 22.29 80.41 20.45Q80.25 19.71 80.06 18.97Q79.82 18.09 79.36 17.59Q79.30 16.80 78.89 15.59Q78.61 15.66 78.47 17.95Q78.41 18.84 78.60 20.66Q78.78 22.60 78.78 22.46L78.78 25.61Q78.78 26.61 78.73 30.17Q78.67 33.20 78.71 34.74Q78.82 35.20 79 36.96Q79 38.45 79.30 41.38Q79.50 42.49 80.79 43.18Q81.53 43.53 82.34 44.15Q82.53 44.83 82.16 45.30Q81.69 45.52 80.79 45.52Q80.41 45.52 77.98 45.26Q77.56 45.22 76.87 45.33Q76 45.46 75.76 45.48Q74.88 45.54 73.05 45.30Q72.71 44.85 72.71 44.33Q72.71 43.90 73.03 43.70Q73.47 43.63 74.27 43.27Q74.75 42.96 75.46 42.20Q75.87 41.38 76.02 40.30Q76.15 39.32 76.28 38.34L76.28 35.78Q76.28 34.01 76.22 34.37Q76.61 32.10 76.61 31.58L76.61 29.21L76.11 25.15L76.11 22.84Q76.11 22.73 76.17 22.49Q76.24 22.25 76.24 22.18Q76.28 21.79 76.20 20.95Q76.11 20.04 76.11 20.04L76.11 17.11Q76.11 17.20 76.22 16.17Q76.31 15.26 76.24 14.90Q76.22 14.77 76.07 14.25Q75.94 13.79 75.94 13.68L75.94 11.03Q75.94 10.95 75.78 10.36Q75.63 9.76 75.61 9.45Q75.61 9.39 75.09 8.45Q74.63 7.59 74.18 7.30Q74.05 7.22 73.10 7.05Q72.99 7.04 72.99 6.59Q72.97 6.15 73.07 5.96Q73.38 5.66 74.01 5.66Q74.87 5.64 75.01 5.61L79.06 5.70Q79.39 5.81 79.63 5.81Q79.82 5.81 80.02 5.75Q80.23 5.68 80.32 5.68Q80.60 5.68 81.10 6.02Q81.40 6.22 81.92 7.83Q82.08 8.78 82.36 10.19Q82.60 10.99 83.07 12.58Q83.38 13.81 84.03 15.44Q85.16 18.37 86.74 24.03Q86.78 24.20 86.48 25.37Q86.39 25.50 86.20 25.74Q86.11 26.95 86.13 27Q86.22 27.24 87.30 27.56Q87.54 28.49 88.02 30.14Q88.28 30.71 88.78 31.97Q88.91 32.70 89.25 33.74Q89.54 33.20 89.88 32.55Q90.14 31.86 90.60 30.53Q90.60 30.29 90.66 29.78Q90.95 28.23 91.92 25.81Q91.99 25.29 92.21 24.24Q92.62 23.23 93.24 21.01Q93.38 19.86 93.53 18.66Q93.68 17.46 94.03 16.57Q94.31 16.09 94.70 15.11Q95.15 12.53 96.43 7.70Q96.46 7.11 96.83 6.11Q97.21 5.70 97.68 5.70Q98.15 5.70 99.06 5.67Q99.97 5.64 100.51 5.64Q100.58 5.64 100.80 5.72Q101.01 5.79 101.08 5.79L105.52 5.70Q105.72 5.66 105.94 6.03Q106.15 6.41 106.15 6.72Q106.15 6.81 106.13 6.89" />
+                    <path d="M130.91 34.81L130.91 38.19Q130.91 38.17 130.89 38.80Q130.86 39.34 130.88 39.62Q130.95 40.49 130.71 41.99Q130.69 42.03 130.52 42.51Q130.41 42.87 130.49 43.07Q130.88 44.20 130.88 44.57Q130.88 45.20 130.13 45.20L109.70 45.20Q108.87 44.98 109.05 44.07Q109.24 43.92 109.54 43.61Q109.87 42.79 110.35 41.34Q110.58 40.40 111.80 37.84Q112.91 35.52 112.95 34.72Q113.27 34.20 113.82 33.16L115.99 28.52Q116.24 27.45 117.18 25.26Q117.20 25.07 117.33 24.74Q117.81 24.61 121.21 24.61Q121.23 24.46 120.95 24.25Q120.06 23.64 119.59 23.53Q119.26 23.53 118.61 23.48Q118.28 23.44 118.11 23.09Q118.52 22.53 119.07 21.45Q119.35 20.47 120.04 18.63Q120.41 18.24 120.89 17.46Q120.91 16.94 121.13 16Q121.63 15.26 122.53 13.64Q122.64 12.88 123.04 11.29Q123.17 10.88 123.88 10Q124.51 9.24 124.51 8.93Q124.51 8.52 123.79 8.33L121.52 8.33Q121.62 8.33 120.50 8.45Q119.46 8.54 118.96 8.50Q118.65 8.48 118.22 8.22Q118.18 8.19 117.66 7.54Q117.27 7.02 116.92 7.09Q116.92 7.22 116.96 7.72Q117 8.15 116.98 8.41Q116.64 8.71 116.31 8.76Q115.59 8.87 114.56 9.27Q113.53 9.67 112.95 10.67Q111.65 12.99 111.65 13.68Q111.65 13.83 111.72 14.16Q111.78 14.50 111.78 14.66Q111.78 15.03 111.53 15.32Q111.28 15.61 110.84 15.61Q110.33 15.61 110.15 15.13Q110.13 15.09 110.26 14.01Q110.50 12.18 110.35 11.03Q110.33 10.88 110.18 10.48Q110.02 10.08 110.02 9.88Q110.02 9.67 110.22 9.24Q110.43 8.82 110.45 8.56Q110.35 7.83 110.50 6.37Q110.61 6.09 111.34 5.92Q112.10 5.74 113.34 5.98L129.32 5.89Q129.67 5.79 130.04 5.95Q130.41 6.11 130.47 6.48Q130.58 7.44 130.34 8.22Q130 9.23 129.52 9.95Q129.17 10.30 128.67 11.04Q128.63 11.16 128.52 12.21Q128.35 12.45 128.04 13.03Q127.72 14.07 127.07 15.94Q126.53 16.65 125.66 18.11Q125.59 18.63 125.33 19.63Q125.07 20.64 124.20 22.21Q123.25 23.96 123.12 24.29Q122.14 26.15 121.10 28.30Q121.12 28.60 121.08 29.10Q120.78 29.51 120.32 30.29Q120.26 30.66 120.08 31.38Q119.87 31.70 119.59 32.29Q119.46 32.88 119.07 34.11Q118.67 34.74 117.94 36.19Q117.50 37.52 116.22 40.29Q115.99 40.95 115.29 42.35Q115.66 42.70 116.22 42.75Q116.29 42.75 117.72 42.75L120.15 42.75Q120.26 42.75 120.49 42.69Q120.73 42.62 120.78 42.61Q121.36 42.61 122.60 42.55Q123.01 42.40 123.86 42.16Q124.25 42.14 125.14 42.01Q126.18 41.79 127.44 40.23Q127.59 39.90 127.94 39.23Q128.44 38.56 129.15 37.08Q129.13 36.20 129.39 34.52Q129.54 34.16 129.97 34.16Q130.76 34.16 130.91 34.81" />
+                    <path d="M170.35 43.24Q170.22 43.50 169.91 43.89Q169.68 44.05 169.35 44.07Q167.96 44.18 167.25 44.07Q167.01 43.87 166.49 43.57Q166.40 43.74 166.60 44.07Q166.31 44.03 165.75 43.89Q165.68 43.64 165.42 43.25Q164.21 43.37 163.60 43.20Q163.47 43.16 162.45 42.29Q161.32 41.33 159.83 39.02Q159.35 38.26 157.40 34.83Q157.12 34.35 157.12 33.92Q157.79 33.72 158.38 34.01Q158.64 34.31 159.14 34.68Q159.20 34.57 159.03 33.96Q159 33.98 159.50 33.98Q159.65 33.83 159.65 33.63Q158.46 33.29 156.44 33.09Q155.49 31.83 154 29.69Q153.95 29.47 153.73 29.04Q153.69 29.02 153.23 29.02L144.50 29.19Q143.93 29.15 143.71 29.69Q143.19 30.84 142.39 33.25Q141.96 35.22 141.96 35.94Q141.96 36.41 142.05 36.81Q142.13 37.21 143.48 38.06Q143.82 38.21 144.36 38.47Q144.54 38.58 144.54 39.02Q144.13 39.25 143.82 39.28Q143.97 39.27 141.98 39.15Q139.55 39.02 139.20 39.08Q136.40 39.41 135.67 39.19Q135.64 38.73 135.77 38.62Q135.80 38.58 136.80 37.80Q137.66 37.15 138.16 36.09Q138.88 34.57 139.48 33.14Q139.51 33.05 141.81 26.26Q142.22 24.76 143.28 21.81Q143.71 21.08 144.36 19.54Q144.50 18.60 144.84 17.02Q145.15 16.41 145.66 15.35Q145.93 14.55 146.62 12.92Q146.86 12.42 147.40 10.15Q146.40 9.62 145.19 9.21Q145.14 8.58 145.54 8.39Q147.58 8.52 147.92 8.52L150.52 8.52Q151.37 8.52 152.17 8.74Q152.30 8.98 152.50 10.13Q152.61 10.28 152.78 10.63Q152.95 10.97 153.15 12.14Q153.26 13.03 153.56 14.75Q154 16.76 155.21 20.32Q155.56 20.90 156.19 22.33Q156.44 23.25 157.03 25.03Q160.11 32.21 163.91 38.10Q164.62 38.99 165.99 40.75Q165.58 41.12 165.47 41.36Q165.55 41.70 165.82 41.70Q166.29 41.70 166.29 41.23Q167.25 41.86 168.22 42.49Q169.52 43.24 170.35 43.24M144.76 26.33L152.84 26.41L148.96 15.50Q148.12 17.07 146.58 20.23Q146.56 20.67 145.97 22.23Q145.97 22.51 145.92 22.94Q145.67 23.31 145.36 23.90Q145.30 24.48 145.04 25.55Q144.91 25.68 144.75 25.91Q144.73 25.98 144.80 26.18Q144.88 26.33 144.76 26.33" />
+                    <path d="M184.18 5.77L197.04 5.77Q196.98 6.11 196.83 6.74Q196.09 6.79 194.68 7.30Q193.86 7.85 193.55 9.86Q193.51 10.10 193.33 10.77Q193.16 11.45 193.12 11.77L192.94 29.15Q192.99 29.64 193.18 30.56Q193.20 30.66 193.12 30.95Q193.05 31.25 193.05 31.38Q193.01 32.07 193.07 33.27Q193.14 34.72 193.14 35.22Q193.14 35.28 193.24 35.44Q193.34 35.61 193.36 35.72Q193.46 36.22 193.57 36.72Q193.68 37.34 193.55 37.67Q193.36 38.13 192.23 39.49Q189.43 42.81 187.04 45.15Q185.12 47 183.40 47Q182.69 47 182.06 46.42Q181.43 45.83 181.43 45.15Q181.43 44.98 181.49 44.83Q182.55 44.29 184.75 43.40Q185.22 43.51 186.16 43.53Q186.52 43.50 186.76 43.06Q187 42.62 187.48 41.58Q187.87 40.56 188.02 38.75Q188.11 37.17 188.20 35.61Q188.50 35.22 189.19 35.05Q190.19 34.78 190.32 34.72Q189.87 34.59 189.24 34.61Q189.17 34.61 188.90 34.68Q188.63 34.76 188.46 34.76Q188.24 34.26 188.32 32.29Q188.37 30.86 188.22 29.36Q188.20 29.21 188.02 28.24Q187.89 27.52 187.91 27.04Q187.93 26.76 188.07 25.72Q188.19 24.87 188.19 24.31Q188.19 23.66 188.04 23.10Q187.93 22.64 187.72 22.40Q188.07 21.27 188.04 20.47Q188.04 18.39 187.91 14.29Q187.91 13.60 187.85 12.27Q187.78 12.16 187.63 11.79Q187.52 11.08 187.30 9.75Q187.11 9.50 186.79 8.97Q186.44 8.17 186.35 8Q186.03 7.48 185.59 7.20Q185.07 7.02 183.97 6.65Q183.97 6.42 184.18 5.77" />
+                    <path d="M226.05 6.42Q226.09 7.24 225.55 7.48Q225.32 7.54 224.93 7.72Q223.12 9.45 223.28 12.36Q223.36 13.75 222.95 16.31Q222.91 16.55 222.91 16.83Q222.91 17.37 223.08 18.26Q223.28 19.34 223.32 19.60Q223.39 20.27 223.10 23.18Q222.97 24.35 222.82 26.74Q222.78 27.46 222.88 28.73Q222.99 30.12 222.99 30.69L223.08 36.80Q223.23 38.30 223.38 39.80Q223.62 41.73 224.14 43.09Q224.30 43.59 225.21 43.94Q225.86 44.20 225.86 44.72Q225.86 45.04 225.58 45.41L216.60 45.41Q216.46 45.17 216.46 44.61Q216.46 44.11 216.90 43.76Q217.42 43.38 217.94 43Q218.63 42.38 218.72 41.70Q219.11 38.17 219.28 35.39Q219.31 34.81 219.26 33.74Q219.18 32.42 219.18 32.01Q219.18 31.68 219.03 29.71Q218.94 28.26 219.05 27.39Q219.15 26.74 218.77 25.09Q217.46 26.48 215.69 26.74Q214.34 26.93 213.71 26.87Q213.58 26.85 213.18 26.73Q212.78 26.61 212.67 26.61L208.37 26.61Q207.98 26.61 207.38 27.43Q206.53 28.62 206.92 30.21Q207.07 30.53 207.23 31.16Q207.27 31.49 207.20 32.12Q207.10 32.86 207.10 33.14Q207.10 33.70 207.19 34.81Q207.27 35.93 207.27 35.94L207.27 38.99Q207.27 40.16 207.70 41.58Q208.22 43.38 209.03 43.89Q209.53 44 210.24 44.50Q210.35 45.65 209.26 45.65Q208.81 45.65 208.07 45.41L204.14 45.41Q203.97 45.57 203.93 45.67Q203.71 45.67 202.82 45.74Q202.11 45.80 201.69 45.76Q201.52 45.76 201.01 45.68Q200.50 45.59 200.24 45.59Q200.09 44.54 201.09 44.03Q202.56 43.33 202.95 41.66Q203.08 40.32 203.19 38.97Q203.49 36.13 203.49 34.74Q203.49 34.50 203.26 33.77Q203.02 32.96 202.97 32.59Q202.93 32.20 203.08 31.34Q203.23 30.42 203.23 30.40L203.23 25.07Q203.23 24.98 203.36 24.59Q203.49 24.20 203.49 24.01Q203.49 23.66 203.06 21.40Q203.06 21.38 203.19 19.23Q203.26 18.02 203.19 17.06Q203.19 16.98 203.11 16.79Q203.04 16.59 203.04 16.48L203.04 11.99Q203.04 11.43 202.52 10.08Q201.96 8.63 201.57 8.48Q200.74 8.19 200.44 7.78Q200.33 7.61 200.41 7.11Q200.50 6.55 200.84 6.42Q201.18 6.29 202.74 6.11Q204.30 5.92 205.08 5.92L209.22 5.92Q210.30 6.37 210.30 7.09Q210.30 7.35 210.09 7.57Q209.87 7.65 209.52 7.82Q207.73 9.04 207.68 9.82Q207.59 11.08 207.33 14.01Q207.09 16.57 207.09 16.67L207.09 19.43Q207.09 21.66 207.29 22.60Q207.38 22.96 207.90 23.10Q207.96 23.12 209.39 23.20Q210.07 23.23 211.43 23.14Q212.89 23.03 212.78 23.03L215.77 23.03Q216.72 23.03 216.83 23.07Q217.01 23.12 217.85 23.72Q218.55 24.22 218.87 24.14Q219.54 23.29 219.54 21.51Q219.54 21.12 219.24 18.28Q219.18 17.72 219.18 15.27Q219.18 15.03 219.04 14.32Q218.90 13.60 218.90 13.10Q218.87 10.45 218.14 8.98Q217.85 8.37 216.90 7.78Q216.12 7.28 216.12 6.79Q216.12 6.70 216.14 6.61Q216.55 6.07 216.81 6.05Q217.81 5.94 219 6.15Q219.22 6.33 219.74 6.55Q220.26 6.59 221.02 6.28Q221.97 5.89 222.26 5.83Q222.67 5.85 223.49 5.79Q224.12 5.68 224.47 5.68Q225.42 5.68 226.05 6.42M203.99 16.96Q203.93 16.33 203.91 15.27Q204.23 12.66 203.67 9.91Q203.62 9.63 203.08 8.84Q203.41 11.08 203.41 12.47L203.41 16.85Q203.41 18.91 203.56 20.86Q203.91 18.34 203.99 16.96" />
+                    <path d="M263.02 43.24Q262.89 43.50 262.57 43.89Q262.35 44.05 262.02 44.07Q260.63 44.18 259.92 44.07Q259.68 43.87 259.16 43.57Q259.07 43.74 259.27 44.07Q258.98 44.03 258.42 43.89Q258.34 43.64 258.08 43.25Q256.88 43.37 256.27 43.20Q256.14 43.16 255.12 42.29Q253.98 41.33 252.50 39.02Q252.02 38.26 250.07 34.83Q249.79 34.35 249.79 33.92Q250.46 33.72 251.05 34.01Q251.31 34.31 251.81 34.68Q251.87 34.57 251.70 33.96Q251.66 33.98 252.17 33.98Q252.31 33.83 252.31 33.63Q251.13 33.29 249.10 33.09Q248.16 31.83 246.67 29.69Q246.62 29.47 246.39 29.04Q246.36 29.02 245.89 29.02L237.17 29.19Q236.60 29.15 236.38 29.69Q235.86 30.84 235.06 33.25Q234.63 35.22 234.63 35.94Q234.63 36.41 234.71 36.81Q234.80 37.21 236.15 38.06Q236.49 38.21 237.02 38.47Q237.21 38.58 237.21 39.02Q236.80 39.25 236.49 39.28Q236.64 39.27 234.65 39.15Q232.22 39.02 231.87 39.08Q229.06 39.41 228.34 39.19Q228.30 38.73 228.43 38.62Q228.47 38.58 229.47 37.80Q230.33 37.15 230.83 36.09Q231.55 34.57 232.14 33.14Q232.18 33.05 234.48 26.26Q234.89 24.76 235.95 21.81Q236.38 21.08 237.02 19.54Q237.17 18.60 237.51 17.02Q237.82 16.41 238.32 15.35Q238.60 14.55 239.29 12.92Q239.53 12.42 240.07 10.15Q239.07 9.62 237.86 9.21Q237.80 8.58 238.21 8.39Q240.25 8.52 240.59 8.52L243.18 8.52Q244.04 8.52 244.84 8.74Q244.97 8.98 245.17 10.13Q245.28 10.28 245.45 10.63Q245.62 10.97 245.82 12.14Q245.93 13.03 246.23 14.75Q246.67 16.76 247.88 20.32Q248.23 20.90 248.86 22.33Q249.10 23.25 249.70 25.03Q252.78 32.21 256.58 38.10Q257.29 38.99 258.66 40.75Q258.25 41.12 258.14 41.36Q258.21 41.70 258.49 41.70Q258.96 41.70 258.96 41.23Q259.92 41.86 260.89 42.49Q262.18 43.24 263.02 43.24M237.43 26.33L245.50 26.41L241.63 15.50Q240.79 17.07 239.25 20.23Q239.23 20.67 238.64 22.23Q238.64 22.51 238.58 22.94Q238.34 23.31 238.03 23.90Q237.97 24.48 237.71 25.55Q237.58 25.68 237.41 25.91Q237.40 25.98 237.47 26.18Q237.54 26.33 237.43 26.33" />
+                    <path d="M289.47 22.36Q289.62 23.98 289.25 28.04Q289.03 29.28 288.58 31.73Q287.63 37.09 285.17 40.29Q284.22 41.51 282.70 42.74Q280.90 44.20 279.82 44.33Q279.67 44.46 279.34 44.65Q275.94 45.31 276.07 45.31L261.16 45.31Q260.97 44.20 261.29 43.94Q262.23 43.46 262.60 43.46Q262.73 43.20 262.99 42.77Q264.07 41.23 264.07 39.34Q264.07 39.30 263.94 38.58Q264.01 38.25 264.07 37.65Q263.96 37.39 263.83 36.85Q263.81 36.67 263.92 36.19Q264.05 35.63 264.07 35.39Q264.13 34.18 264.13 31.58L264.13 28.04Q264.11 24.38 264.16 17.50Q264.16 17.39 264.04 17.06Q263.92 16.72 263.92 16.59Q263.92 16.07 264.04 15.01Q264.16 13.96 264.16 13.44Q264.16 13.31 264.01 12.96Q263.87 12.60 263.83 12.40Q263.87 11.79 263.77 10.56Q263.38 8.46 262.59 7.89Q261.97 7.43 260.41 7.13Q260.38 6.92 260.38 6.29Q261.36 5.63 262.34 5.92Q262.34 5.92 262.51 6.09Q262.68 6.26 262.79 6.24Q262.94 6.13 263.18 5.92Q263.40 5.96 263.83 5.90Q264.35 5.83 264.53 5.83Q265.48 5.83 265.98 6.79Q266.04 6.79 266.13 6.78Q266.33 6.29 266.82 5.53Q267.37 5.66 268.36 5.87Q268.39 5.87 268.54 5.66Q268.69 5.46 268.82 5.40Q269.51 5.09 270.93 5.09L276.76 5.09Q280.55 6.22 282.10 7.17Q285.06 8.95 286.95 12.60Q287.34 13.31 288.04 14.85Q289.04 17.59 289.47 22.36M288.45 22.33Q285.65 22.07 284.52 22.14Q284.26 21.94 284.28 21.62Q284.33 21.34 284.37 21.04Q283.94 19.69 283.07 17.09Q281.85 13.68 280.38 11.67Q278.91 9.65 275.61 8.85Q274.13 8.50 274.26 8.50L271.90 8.50Q271.81 8.50 270.68 8.80Q269.47 9.11 269.08 9.17Q268.76 11.38 268.84 13.96Q268.88 15.20 268.88 9.91L268.88 22.36Q268.88 35.11 268.80 33.96Q268.91 35.78 268.93 35.52Q268.84 36.80 268.89 37.63Q268.91 37.84 269.04 38.49Q269.15 39.04 269.14 39.32Q269.10 39.34 268.37 39.75Q267.84 40.04 267.73 40.55Q268.13 41.05 268.76 41.12Q269.23 41.14 269.67 41.18Q274.29 41.88 275.02 41.88Q277.19 41.88 278.88 40.95Q280.34 40.16 281.29 38.84Q283.29 36.02 283.96 31.84Q284.28 29.82 284.41 25.15Q284.42 24.74 284 24.05Q283.96 23.62 284.13 23.55Q284.50 23.38 285.56 23.20Q286.50 23.07 288.25 22.81Q288.45 22.58 288.45 22.33" />
+                  </g>
+                </svg>
+              </div>
+
+              <div class="bookplate-craft">SOFTWARE DEVELOPER & SYSTEMS ARCHITECT</div>
+
+              <!-- Refined Bookcraft Tailpiece Ornament -->
+              <div class="bookplate-tailpiece" aria-hidden="true">
+                <span class="tailpiece-line"></span>
+                <span class="tailpiece-glyph">❦</span>
+                <span class="tailpiece-line"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK FACE: The reverse parchment texture as the leaf curls over -->
+      <div class="leaf-face leaf-back" aria-hidden="true">
+        <div class="back-outer-border">
+          <div class="back-inner-border">
+            <span class="back-rosette rosette-tl">❖</span>
+            <span class="back-rosette rosette-tr">❖</span>
+            <span class="back-rosette rosette-bl">❖</span>
+            <span class="back-rosette rosette-br">❖</span>
+            <div class="back-watermark">
+              <span class="watermark-monogram">HJ</span>
+              <span class="watermark-sub">PORTFOLIO · 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="back-gutter-shadow" aria-hidden="true"></div>
+      </div>
+
+    </div>
+
+    <!-- Quiet bookish cue below the bookplate leaf -->
+    <div class="bookplate-open-cue" aria-hidden="true">
+      <span class="cue-fleuron">❧</span>
+      <span class="cue-label">Click anywhere or press Space to open</span>
+      <span class="cue-fleuron">❧</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Immediately suppress overlay if user has already seen it */
+  :global(html.skip-splash) #bookplate-splash-overlay {
+    display: none !important;
+  }
+
+  /* Fixed full-screen backdrop overlay */
+  .bookplate-splash-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(14, 13, 11, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    transition: opacity 0.52s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.52s ease;
+  }
+
+  .bookplate-splash-overlay.is-curling {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.44s;
+  }
+
+  /* 3D Perspective Stage */
+  .bookplate-stage {
+    perspective: 1600px;
+    perspective-origin: 20% 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 410px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: folioEntrance 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes folioEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.97) rotateX(3deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+    }
+  }
+
+  /* Quiet bookish cue below the bookplate leaf */
+  .bookplate-open-cue {
+    margin-top: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--light-color);
+    opacity: 0;
+    animation: cueFadeIn 0.4s ease 0.4s forwards;
+    user-select: none;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .bookplate-splash-overlay.is-curling .bookplate-open-cue {
+    opacity: 0 !important;
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .cue-fleuron {
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  @keyframes cueFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    100% {
+      opacity: 0.55;
+      transform: translateY(0);
+    }
+  }
+
+  /* Ambient soft shadow underneath on the desktop */
+  .curl-ambient-shadow {
+    position: absolute;
+    width: 94%;
+    height: 90%;
+    border-radius: 16px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 55%, transparent 75%);
+    transform: translateY(18px) scale(0.96);
+    opacity: 0.9;
+    transition: transform 0.96s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.96s cubic-bezier(0.25, 0.1, 0.25, 1);
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform, opacity;
+  }
+
+  .bookplate-splash-overlay.is-curling .curl-ambient-shadow {
+    opacity: 0;
+    transform: translateY(8px) translateX(-90px) scale(0.7);
+  }
+
+  /* The 3D Paper Leaf Container */
+  .bookplate-leaf {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    transform-origin: 0% 50%; /* Left spine / turning edge */
+    transform-style: preserve-3d;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+    will-change: transform, opacity;
+  }
+
+  .bookplate-leaf:hover {
+    transform: rotateY(-5deg) translateY(-2px);
+  }
+
+  /* REALISTIC BOOK COVER OPENING KEYFRAMES (100% GPU Accelerated) */
+  .bookplate-splash-overlay.is-curling .bookplate-leaf {
+    animation: realisticPageCurl 0.96s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  @keyframes realisticPageCurl {
+    0% {
+      transform: rotateY(0deg) rotateZ(0deg) rotateX(0deg) translate3d(0, 0, 0);
+    }
+    14% {
+      /* Corner lift off desk */
+      transform: rotateY(-16deg) rotateZ(-2deg) rotateX(1.5deg) translate3d(-3px, -2px, 12px);
+    }
+    44% {
+      /* Arching high toward viewer in 3D perspective */
+      transform: rotateY(-64deg) rotateZ(-1deg) rotateX(1deg) translate3d(-15px, -3px, 30px);
+    }
+    70% {
+      /* Past perpendicular: verso endpaper swinging into view */
+      transform: rotateY(-118deg) rotateZ(1.8deg) rotateX(-0.8deg) translate3d(-28px, -2px, 15px);
+      opacity: 0.98;
+    }
+    88% {
+      /* Descending toward left margin, book resting open */
+      transform: rotateY(-154deg) rotateZ(3deg) rotateX(-1deg) translate3d(-36px, 0px, 4px);
+      opacity: 0.85;
+    }
+    100% {
+      /* Rests fully open on the left, dissolved into portfolio */
+      transform: rotateY(-175deg) rotateZ(3.5deg) rotateX(0deg) translate3d(-40px, 0px, 0px);
+      opacity: 0;
+    }
+  }
+
+  /* 3D Leaf Faces (Front & Back) */
+  .leaf-face {
+    width: 100%;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* FRONT FACE */
+  .leaf-front {
+    position: relative;
+    background-color: var(--bg-color);
+    background-image: url("/assets/images/bg-pattern.jpg");
+    background-size: 1400px auto;
+    border: 1px solid var(--rule-light);
+    box-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      -1px -1px 0 rgba(0, 0, 0, 0.12) inset,
+      0 18px 45px -8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+
+  :global([data-user-color-scheme="dark"]) .leaf-front {
+    background-image: url("/assets/images/bg-pattern-dark.jpg");
+    box-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.1) inset,
+      -1px -1px 0 rgba(0, 0, 0, 0.4) inset,
+      0 22px 60px -8px rgba(0, 0, 0, 0.85);
+  }
+
+  /* Left spine crease highlight along book hinge */
+  .leaf-spine-crease {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 14px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.28) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 12;
+  }
+
+  /* BACK FACE OF PARCHMENT (Verso Endpaper) */
+  .leaf-back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    background-color: var(--bg-color);
+    background-image: url("/assets/images/bg-pattern.jpg");
+    background-size: 1400px auto;
+    border: 1px solid var(--rule-light);
+    overflow: hidden;
+    box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.18);
+  }
+
+  :global([data-user-color-scheme="dark"]) .leaf-back {
+    background-image: url("/assets/images/bg-pattern-dark.jpg");
+    box-shadow: inset 0 0 55px rgba(0, 0, 0, 0.55);
+  }
+
+  .back-outer-border {
+    position: absolute;
+    inset: 1.25rem;
+    border: 3px double var(--rule-light);
+    padding: 6px;
+    box-sizing: border-box;
+  }
+
+  .back-inner-border {
+    border: 1px solid var(--rule-light);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  .back-rosette {
+    position: absolute;
+    font-size: 0.72rem;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.55;
+  }
+
+  .back-gutter-shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.28) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 12;
+  }
+
+  .back-watermark {
+    text-align: center;
+    opacity: 0.16;
+    user-select: none;
+  }
+
+  .watermark-monogram {
+    display: block;
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 4.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .watermark-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* CYLINDRICAL SPECULAR LIGHT SWEEP (100% GPU Accelerated via translateX) */
+  .cylinder-light-sheen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20%;
+    width: 140%;
+    border-radius: 8px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.25) 45%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.2) 55%,
+      transparent 65%,
+      transparent 100%
+    );
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    mix-blend-mode: overlay;
+    will-change: transform, opacity;
+  }
+
+  .bookplate-splash-overlay.is-curling .cylinder-light-sheen {
+    animation: sheenSweep 0.96s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  @keyframes sheenSweep {
+    0% {
+      opacity: 0;
+      transform: translateX(60%);
+    }
+    18% {
+      opacity: 0.85;
+      transform: translateX(25%);
+    }
+    55% {
+      opacity: 0.95;
+      transform: translateX(-30%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-90%);
+    }
+  }
+
+  /* CYLINDRICAL CREASE SHADOW (100% GPU Accelerated via translateX) */
+  .cylinder-crease-shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20%;
+    width: 140%;
+    border-radius: 8px;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 38%,
+      rgba(0, 0, 0, 0.45) 48%,
+      rgba(0, 0, 0, 0.2) 54%,
+      transparent 65%,
+      transparent 100%
+    );
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9;
+    will-change: transform, opacity;
+  }
+
+  .bookplate-splash-overlay.is-curling .cylinder-crease-shadow {
+    animation: creaseSweep 0.96s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  @keyframes creaseSweep {
+    0% {
+      opacity: 0;
+      transform: translateX(60%);
+    }
+    22% {
+      opacity: 0.75;
+      transform: translateX(20%);
+    }
+    58% {
+      opacity: 0.65;
+      transform: translateX(-35%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-90%);
+    }
+  }
+
+  /* WOODCUT EX-LIBRIS CARD STYLING */
+  .ex-libris-card {
+    position: relative;
+    padding: 1.4rem 1.4rem 1.25rem;
+    z-index: 3;
+  }
+
+  .ex-libris-outer-frame {
+    border: 3px double var(--text-color);
+    padding: 6px;
+    box-shadow: inset 0 0 0 1px var(--rule-light);
+  }
+
+  .ex-libris-inner-frame {
+    border: 1px solid var(--text-color);
+    padding: 1.85rem 1.35rem 1.65rem;
+    text-align: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.015);
+  }
+
+  :global([data-user-color-scheme="dark"]) .ex-libris-inner-frame {
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  /* Corner Rosettes */
+  .corner-rosette {
+    position: absolute;
+    font-size: 0.72rem;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .rosette-tl { top: 4px; left: 4px; }
+  .rosette-tr { top: 4px; right: 4px; }
+  .rosette-bl { bottom: 4px; left: 4px; }
+  .rosette-br { bottom: 4px; right: 4px; }
+
+  /* Top Banner */
+  .bookplate-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .banner-fleuron {
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .banner-title {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 1.12rem;
+    letter-spacing: 0.24em;
+    font-weight: 700;
+  }
+
+  .bookplate-subtitle {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    opacity: 0.72;
+    margin-top: 0.35rem;
+  }
+
+  /* Sculpted Crimson & Gold Wax Monogram Seal */
+  .bookplate-seal-wrapper {
+    margin: 1.15rem auto 0.9rem;
+  }
+
+  .wax-seal {
+    position: relative;
+    width: 74px;
+    height: 74px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #8c2020 0%, #631414 55%, #3d0a0a 100%);
+    box-shadow: 
+      0 0 0 2px rgba(255, 255, 255, 0.18) inset,
+      0 2px 4px rgba(0, 0, 0, 0.4) inset,
+      0 6px 18px rgba(0, 0, 0, 0.4),
+      0 0 0 3.5px #541111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  :global([data-user-color-scheme="dark"]) .wax-seal {
+    background: radial-gradient(circle at 35% 35%, #9b2626 0%, #721616 55%, #440c0c 100%);
+    box-shadow: 
+      0 0 0 2px rgba(255, 255, 255, 0.22) inset,
+      0 2px 4px rgba(0, 0, 0, 0.45) inset,
+      0 8px 22px rgba(0, 0, 0, 0.7),
+      0 0 0 3.5px #5f1313;
+  }
+
+  .bookplate-leaf:hover .wax-seal {
+    transform: scale(1.04);
+  }
+
+  .wax-seal-beaded-ring {
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 1.5px dotted rgba(247, 223, 165, 0.6);
+    pointer-events: none;
+  }
+
+  .wax-seal-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wax-monogram {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 2.15rem;
+    font-weight: 700;
+    color: #f7dfa5;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    text-shadow: 
+      0 1px 0 rgba(255, 255, 255, 0.4),
+      0 -1px 0 rgba(0, 0, 0, 0.85),
+      0 2px 4px rgba(0, 0, 0, 0.65);
+    user-select: none;
+  }
+
+  /* ==========================================================
+     AUTHENTIC RINGBEARER NAME ANIMATION & TYPOGRAPHY
+     ========================================================== */
+  .bookplate-name-container {
+    position: relative;
+    width: 100%;
+    height: 46px;
+    margin: 0.45rem auto 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .handwritten-name-svg {
+    position: absolute;
+    width: 100%;
+    max-width: 310px;
+    height: 100%;
+    color: var(--text-color);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12));
+  }
+
+  /* Dynamic Calligraphic Mask Strokes */
+  .mask-stroke {
+    fill: none;
+    transition: stroke-dashoffset 0.18s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  /* Sequenced inking triggers progressive stroke-by-stroke reveal */
+  .is-inking .mask-stroke {
+    stroke-dashoffset: 0 !important;
+  }
+
+  /* Once writing sequence finishes, unmask completely for crystal-clear letterforms */
+  .is-inked .ringbearer-glyphs {
+    mask: none !important;
+    -webkit-mask: none !important;
+  }
+
+  .bookplate-craft {
+    font-family: 'Ringbearer', 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 0.25rem;
+  }
+
+  /* Refined Bookcraft Tailpiece Ornament */
+  .bookplate-tailpiece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    max-width: 130px;
+    margin: 1.05rem auto 0.15rem;
+    color: var(--accent);
+    opacity: 0.65;
+  }
+
+  .tailpiece-line {
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+  }
+
+  .tailpiece-glyph {
+    font-size: 0.82rem;
+    line-height: 1;
+  }
+
+  /* Responsive tuning for small mobile screens */
+  @media screen and (max-width: 480px) {
+    .bookplate-splash-overlay {
+      padding: 1rem;
+    }
+
+    .ex-libris-card {
+      padding: 1rem 1rem 0.9rem;
+    }
+
+    .ex-libris-inner-frame {
+      padding: 1.4rem 1rem 1.3rem;
+    }
+
+    .banner-title {
+      font-size: 0.98rem;
+      letter-spacing: 0.2em;
+    }
+
+    .bookplate-subtitle {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+    }
+
+    .bookplate-seal-wrapper {
+      margin: 0.9rem auto 0.75rem;
+    }
+
+    .wax-seal {
+      width: 64px;
+      height: 64px;
+    }
+
+    .wax-monogram {
+      font-size: 1.85rem;
+    }
+
+    .bookplate-name-container {
+      height: 38px;
+    }
+
+    .bookplate-craft {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+    }
+
+    .bookplate-tailpiece {
+      margin-top: 0.8rem;
+    }
+  }
+
+
+
+  /* Accessibility: Prefers Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cylinder-light-sheen,
+    .cylinder-crease-shadow {
+      display: none;
+    }
+    .ringbearer-glyphs {
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    .bookplate-splash-overlay.is-curling .bookplate-leaf {
+      animation: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+  }
+</style>
+
+<script>
+  // Automatic Realistic Page Curl Splash Controller
+  const overlay = document.getElementById('bookplate-splash-overlay');
+  const leaf = document.getElementById('bookplate-leaf');
+  const nameContainer = document.getElementById('name-container');
+
+  const params = new URLSearchParams(window.location.search);
+  const forceSplash = params.has('splash');
+  const hasSeenSplash = sessionStorage.getItem('folio_splash_seen') || localStorage.getItem('folio_splash_seen');
+
+  let hasTurned = false;
+  let autoCurlTimer: ReturnType<typeof setTimeout> | null = null;
+  let unmaskTimer: ReturnType<typeof setTimeout> | null = null;
+
+  if (hasSeenSplash && !forceSplash) {
+    if (overlay) overlay.style.display = 'none';
+  } else {
+    // Mark as seen immediately so navigating to / never re-triggers it
+    try {
+      sessionStorage.setItem('folio_splash_seen', 'true');
+      localStorage.setItem('folio_splash_seen', 'true');
+    } catch (e) {}
+
+    // Signal main content to prepare for the cinematic reveal
+    document.body.classList.add('splash-active');
+
+    // Trigger stroke-by-stroke calligraphy shortly after initial load
+    setTimeout(() => {
+      if (!hasTurned && nameContainer) {
+        nameContainer.classList.add('is-inking');
+        
+        // Promptly open the book right as the signature finishes inking
+        autoCurlTimer = setTimeout(() => {
+          executePageCurl();
+        }, 1400);
+
+        // Final stroke completes at 1300ms, ensuring crystal-clear unmasking
+        unmaskTimer = setTimeout(() => {
+          nameContainer?.classList.add('is-inked');
+        }, 1300);
+      }
+    }, 150);
+  }
+
+  /**
+   * Execute realistic 3D page curl transition
+   */
+  const executePageCurl = () => {
+    if (hasTurned || !overlay) return;
+    hasTurned = true;
+
+    try {
+      sessionStorage.setItem('folio_splash_seen', 'true');
+      localStorage.setItem('folio_splash_seen', 'true');
+    } catch (e) {}
+
+    if (autoCurlTimer) {
+      clearTimeout(autoCurlTimer);
+      autoCurlTimer = null;
+    }
+    if (unmaskTimer) {
+      clearTimeout(unmaskTimer);
+      unmaskTimer = null;
+    }
+
+    // Ensure name is fully inked and unmasked
+    nameContainer?.classList.add('is-inking', 'is-inked');
+
+    // Trigger the 3D realistic page curl and main content reveal
+    overlay.classList.add('is-curling');
+    document.body.classList.add('splash-revealing');
+
+    // After curl animation completes (0.96s = 960ms), clean up overlay and settle page
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      document.body.classList.remove('splash-active', 'splash-revealing');
+      document.body.classList.add('splash-settled');
+    }, 960);
+  };
+
+  // User click or keypress anywhere instantly accelerates and curls without waiting
+  const immediateSkip = () => {
+    executePageCurl();
+  };
+
+  overlay?.addEventListener('click', immediateSkip);
+  leaf?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    immediateSkip();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (['Enter', ' ', 'Escape'].includes(e.key) && !hasTurned) {
+      e.preventDefault();
+      immediateSkip();
+    }
+  });
+
+  // Replay handler for Command Palette (Ctrl+K -> Replay Bookplate Splash)
+  window.addEventListener('replay-splash', () => {
+    if (!overlay) return;
+    document.documentElement.classList.remove('skip-splash');
+    hasTurned = false;
+    if (autoCurlTimer) {
+      clearTimeout(autoCurlTimer);
+      autoCurlTimer = null;
+    }
+    if (unmaskTimer) {
+      clearTimeout(unmaskTimer);
+      unmaskTimer = null;
+    }
+
+    overlay.style.display = 'flex';
+    void overlay.offsetWidth;
+    overlay.classList.remove('is-curling');
+    document.body.classList.remove('splash-settled');
+    document.body.classList.add('splash-active');
+    
+    nameContainer?.classList.remove('is-inking', 'is-inked');
+
+    // Restart inking
+    setTimeout(() => {
+      nameContainer?.classList.add('is-inking');
+      autoCurlTimer = setTimeout(() => {
+        executePageCurl();
+      }, 1400);
+
+      unmaskTimer = setTimeout(() => {
+        nameContainer?.classList.add('is-inked');
+      }, 1300);
+    }, 150);
+  });
+</script>
