@@ -121,7 +121,7 @@ const ogImageSrc = ogImage
     <CommandPalette />
 
     <a class="skip-link" href="#nav">Jump to navigation</a>
-    <FloatingMenu bodyClass={bodyClass} />
+    {bodyClass !== 'home' && <FloatingMenu bodyClass={bodyClass} />}
 
     <div class="app">
       <header class={`header-main ${bodyClass}`.trim()}>

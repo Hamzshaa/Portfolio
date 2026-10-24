@@ -266,6 +266,7 @@
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 2;
     will-change: transform, opacity;
+    color: var(--text-color);
   }
 
   .bookplate-leaf:hover {
@@ -320,7 +321,7 @@
     background-color: var(--bg-color);
     background-image: url("/assets/images/bg-pattern.jpg");
     background-size: 1400px auto;
-    border: 1px solid var(--rule-light);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 
       0 1px 0 rgba(255, 255, 255, 0.6) inset,
       -1px -1px 0 rgba(0, 0, 0, 0.12) inset,
@@ -329,11 +330,25 @@
   }
 
   :global([data-user-color-scheme="dark"]) .leaf-front {
+    background-color: #121110;
     background-image: url("/assets/images/bg-pattern-dark.jpg");
+    border-color: rgba(240, 235, 225, 0.25);
     box-shadow: 
       0 1px 0 rgba(255, 255, 255, 0.1) inset,
       -1px -1px 0 rgba(0, 0, 0, 0.4) inset,
       0 22px 60px -8px rgba(0, 0, 0, 0.85);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .leaf-front {
+      background-color: #121110;
+      background-image: url("/assets/images/bg-pattern-dark.jpg");
+      border-color: rgba(240, 235, 225, 0.25);
+      box-shadow: 
+        0 1px 0 rgba(255, 255, 255, 0.1) inset,
+        -1px -1px 0 rgba(0, 0, 0, 0.4) inset,
+        0 22px 60px -8px rgba(0, 0, 0, 0.85);
+    }
   }
 
   /* Left spine crease highlight along book hinge */
@@ -356,26 +371,47 @@
     background-color: var(--bg-color);
     background-image: url("/assets/images/bg-pattern.jpg");
     background-size: 1400px auto;
-    border: 1px solid var(--rule-light);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     overflow: hidden;
     box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.18);
   }
 
   :global([data-user-color-scheme="dark"]) .leaf-back {
+    background-color: #121110;
     background-image: url("/assets/images/bg-pattern-dark.jpg");
+    border-color: rgba(240, 235, 225, 0.25);
     box-shadow: inset 0 0 55px rgba(0, 0, 0, 0.55);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .leaf-back {
+      background-color: #121110;
+      background-image: url("/assets/images/bg-pattern-dark.jpg");
+      border-color: rgba(240, 235, 225, 0.25);
+      box-shadow: inset 0 0 55px rgba(0, 0, 0, 0.55);
+    }
   }
 
   .back-outer-border {
     position: absolute;
     inset: 1.25rem;
-    border: 3px double var(--rule-light);
+    border: 3px double rgba(0, 0, 0, 0.2);
     padding: 6px;
     box-sizing: border-box;
   }
 
+  :global([data-user-color-scheme="dark"]) .back-outer-border {
+    border-color: rgba(240, 235, 225, 0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .back-outer-border {
+      border-color: rgba(240, 235, 225, 0.35);
+    }
+  }
+
   .back-inner-border {
-    border: 1px solid var(--rule-light);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
     position: relative;
@@ -384,6 +420,18 @@
     justify-content: center;
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.015);
+  }
+
+  :global([data-user-color-scheme="dark"]) .back-inner-border {
+    border-color: rgba(240, 235, 225, 0.25);
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .back-inner-border {
+      border-color: rgba(240, 235, 225, 0.25);
+      background: rgba(255, 255, 255, 0.015);
+    }
   }
 
   .back-rosette {
@@ -546,6 +594,12 @@
     background: rgba(255, 255, 255, 0.015);
   }
 
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .ex-libris-inner-frame {
+      background: rgba(255, 255, 255, 0.015);
+    }
+  }
+
   /* Corner Rosettes */
   .corner-rosette {
     position: absolute;
@@ -617,6 +671,17 @@
       0 2px 4px rgba(0, 0, 0, 0.45) inset,
       0 8px 22px rgba(0, 0, 0, 0.7),
       0 0 0 3.5px #5f1313;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-user-color-scheme="light"])) .wax-seal {
+      background: radial-gradient(circle at 35% 35%, #9b2626 0%, #721616 55%, #440c0c 100%);
+      box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.22) inset,
+        0 2px 4px rgba(0, 0, 0, 0.45) inset,
+        0 8px 22px rgba(0, 0, 0, 0.7),
+        0 0 0 3.5px #5f1313;
+    }
   }
 
   .bookplate-leaf:hover .wax-seal {
