@@ -32,5 +32,6 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Sitemap
+# Sitemaps
+Sitemap: https://hamzajhad.com/sitemap.xml
 Sitemap: https://hamzajhad.com/sitemap-index.xml

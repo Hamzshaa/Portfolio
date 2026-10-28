@@ -53,6 +53,14 @@ const ogImageSrc = ogImage
   ? `${siteUrl}/assets/images/OG/${ogImage}.jpg`
   : `${siteUrl}/assets/images/OG/hamza-jhad-og.jpg`;
 
+let markdownHref = '/index.md';
+if (bodyClass && bodyClass.includes('fourohfour')) {
+  markdownHref = '/404.md';
+} else if (pagePath) {
+  const cleanPath = pagePath.replace(/^\/|\/$/g, '');
+  markdownHref = `/${cleanPath}.md`;
+}
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -122,6 +130,7 @@ const jsonLd = {
     <meta name="author" content="Hamza Jhad" />
     <meta name="keywords" content="Hamza Jhad, Full-Stack Engineer, ERP Architect, BirtuCan Technologies, Software Developer, Hospitality ERP, POS Systems, Addis Ababa, TypeScript, React, Next.js, Node.js, Python, PostgreSQL" />
 
+    <link rel="alternate" type="text/markdown" href={markdownHref} title="Markdown content" />
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM context" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
