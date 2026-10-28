@@ -1,0 +1,51 @@
+# Hamza Jhad
+
+> Full-stack software engineer, ERP architect, and co-founder of BirtuCan Technologies PLC based in Addis Ababa, Ethiopia. Specializing in mission-critical operations software, multi-tenant hospitality systems, offline-resilient POS networks, and social welfare platforms.
+
+## Core Profile
+- Name: Hamza Jhad
+- Title: Co-Founder & Full-Stack Software Engineer
+- Company: [BirtuCan Technologies PLC](https://birtucansoftware.com)
+- Location: Addis Ababa, Ethiopia
+- Primary Stack: TypeScript, Node.js, Next.js, React, Astro, Python (FastAPI/Django), PostgreSQL, Redis, Docker, Linux
+- Website: https://hamzajhad.com
+- Full Context Digest: https://hamzajhad.com/llms-full.txt
+- Machine-Readable API: https://hamzajhad.com/api/portfolio.json
+
+## Primary Navigation
+- [About](https://hamzajhad.com/about): Bio, engineering philosophy (usability first), and background.
+- [Work](https://hamzajhad.com/work): Production enterprise ERPs, retail platforms, and multi-tenant humanitarian suites.
+- [Technologies](https://hamzajhad.com/technologies): Curated index of languages, frontend, backend, and platform tooling.
+- [Timeline](https://hamzajhad.com/timeline): Career progression, university education (Addis Ababa University CS), and venture milestones.
+- [Thoughts](https://hamzajhad.com/thoughts): Technical essays and reflections on software systems and operational complexity.
+
+## Flagship Projects & Live Deployments
+- [Restaurant & Hospitality ERP](https://hamzajhad.com/work): All-in-one operations platform managing QR ordering, kitchen dispatch, dual-level inventory, HR attendance, and multi-bank settlement.
+  - [Cloud Sun Cafe Bahir Dar](https://cloudsunbahirdar.com/): Table-side QR ordering and automated staff payroll.
+  - [Arabian Palace Restaurant](https://arabianpalace-eth.com/): Multi-floor dining and lounge with multi-station kitchen routing.
+  - [Cloud Sun Cafe Addis Ababa](https://cloudsun-cafe.com/): High-turnover metropolitan cafe operations and procurement.
+  - [KOS Home Cafe](https://koshomecafe.com/): Specialty brunch hub with recipe cost tracking and live inventory.
+- [Nur Selam Baltna Manufacturing ERP](https://nurselambaltina.com/): Industrial manufacturing ERP coordinating raw material intake, recipe formulation batching, and distributor logistics.
+- [Retail POS & Shop Platform](https://hamzajhad.com/work): Omnichannel retail management with barcode scanning, lot/expiry tracking, and multi-store inventory synchronization.
+  - [Cloud Group Retail & Treasury](https://cloudgroup-et.com/): Multi-tier wholesale and retail POS with treasury reconciliation.
+  - [Yusra Baltina](https://yusrabaltina.com/): Bulk spice and traditional grains POS with batch expiry tracking.
+  - [Yoban Kitchenware](https://yoban-et.com/): High-SKU kitchenware inventory management with barcode printing.
+  - [Nur Selam Baltina Shop](https://shop.nurselambaltina.com/): Retail consumer storefront with real-time factory stock synchronization.
+  - [Ethio Yarn Store](https://ethioyarnstores.com/): Omnichannel retail suite with Flutter mobile shopping app and GPS delivery calculations.
+- [Non-Profit & Humanitarian Ecosystem](https://hamzajhad.com/work): Comprehensive social welfare tech suite.
+  - [Eznet Child Care Portal](https://eznet-cp.com/): Sponsorship and child welfare tracking portal.
+  - [Metezazen Charity](https://metezazen.org/): QR-verified meal voucher distribution across partner dining venues.
+  - [My Charities Foundation](https://mycharities-foundation.org/): International philanthropic campaigns and verifiable metrics.
+  - [Dar Al-Fiker Foundation](https://daralfiker.org/): Orphan sponsorship and relief operations.
+  - [Afak Organization](https://www.afakorganization.com/): Disaster relief and youth capacity building portal.
+  - [Mamedoch Association](https://mamedoch.org/): Community welfare initiative and mutual aid fund.
+  - [Ethiopian Ahle Sunna Mosque Network](https://ethioahlesunnah.org/): Nationwide institution network, prayer schedules, and regional applications.
+  - [Arefa Islamic Institution](https://arefaic.org/): Multilingual community portal with localized CMS and donations.
+  - [Atika Women's Center](https://atikawec.com/): Educational administrative suite with digital student ID generation.
+- [Sara Mall Property & Tenant ERP](https://hamzajhad.com/work): Commercial retail building ERP managing leasing units, tenant lifecycle, and automated billing.
+
+## Optional & Social Channels
+- [GitHub](https://github.com/hamzshaa): Code repositories and open-source contributions.
+- [LinkedIn](https://www.linkedin.com/in/hamza-jhad-ba5b36291): Professional career and network.
+- [Telegram](https://t.me/hamZZsha): Direct messaging.
+- [Email](mailto:trident32000@gmail.com): Professional inquiries and architecture consulting.

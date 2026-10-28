@@ -52,6 +52,64 @@ if (bodyClass === 'thought-detail') {
 const ogImageSrc = ogImage
   ? `${siteUrl}/assets/images/OG/${ogImage}.jpg`
   : `${siteUrl}/assets/images/OG/hamza-jhad-og.jpg`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Hamza Jhad',
+      jobTitle: 'Full-Stack Software Engineer & ERP Architect',
+      description: 'Full-stack software engineer and co-founder at BirtuCan Technologies PLC, building mission-critical hospitality ERPs, factory manufacturing systems, and offline-resilient POS architectures.',
+      url: siteUrl,
+      image: `${siteUrl}/assets/images/hamza-avatar.png`,
+      sameAs: [
+        'https://github.com/hamzshaa',
+        'https://www.linkedin.com/in/hamza-jhad-ba5b36291',
+        'https://t.me/hamZZsha',
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'BirtuCan Technologies PLC',
+        url: 'https://birtucansoftware.com',
+      },
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Addis Ababa University',
+        },
+      ],
+      knowsAbout: [
+        'Full-Stack Software Engineering',
+        'Enterprise Resource Planning (ERP)',
+        'Point of Sale (POS) Systems',
+        'System Architecture',
+        'TypeScript',
+        'Node.js',
+        'React',
+        'Next.js',
+        'Astro',
+        'Python',
+        'FastAPI',
+        'PostgreSQL',
+        'Redis',
+        'Docker',
+        'Linux Administration',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Hamza Jhad | Portfolio',
+      description: 'Hamza Jhad is a full-stack engineer and ERP architect crafting robust systems, hospitality platforms, and digital tools.',
+      publisher: {
+        '@id': `${siteUrl}/#person`,
+      },
+    },
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +120,10 @@ const ogImageSrc = ogImage
 
     <meta name="description" content={pageDescription} />
     <meta name="author" content="Hamza Jhad" />
+    <meta name="keywords" content="Hamza Jhad, Full-Stack Engineer, ERP Architect, BirtuCan Technologies, Software Developer, Hospitality ERP, POS Systems, Addis Ababa, TypeScript, React, Next.js, Node.js, Python, PostgreSQL" />
+
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM context" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <title>{docTitle}</title>
     <link rel="canonical" href={canonicalUrl} />

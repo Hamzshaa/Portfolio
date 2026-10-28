@@ -1,0 +1,115 @@
+# Hamza Jhad — Full Developer & System Architecture Digest
+
+## Executive Overview
+- **Full Name:** Hamza Jhad
+- **Role:** Full-Stack Software Engineer & Enterprise ERP Architect
+- **Current Venture:** Co-Founder & Software Engineer at BirtuCan Technologies PLC
+- **Location:** Addis Ababa, Ethiopia
+- **Portfolio Website:** https://hamzajhad.com
+- **Primary Email:** trident32000@gmail.com
+- **GitHub:** https://github.com/hamzshaa
+- **LinkedIn:** https://www.linkedin.com/in/hamza-jhad-ba5b36291
+- **Telegram:** https://t.me/hamZZsha
+- **WhatsApp:** +251 929 248 080
+
+---
+
+## Core Engineering Philosophy
+1. **Usability Over Hype:** Software deployed in fast-paced retail stores or loud commercial kitchens must be resilient to human stress. A system can be technically elegant, but if it introduces friction or confusion during peak operating hours, it has failed.
+2. **Reliability and Offline Resilience:** Network drops and latency spikes are realities in emerging markets. Systems are architected with local queuing, optimistic updates, and idempotent sync mechanisms.
+3. **No Framework Tourism:** Tools are selected strictly for their operational track record and maintainability. Foundations are built on strong typed contracts (TypeScript, relational PostgreSQL constraints, schema validations).
+
+---
+
+## Technical Stack & Tooling Breakdown
+
+### Languages & Runtimes
+- **TypeScript / JavaScript:** Primary full-stack language across both client interfaces and distributed Node.js/Nest.js microservices.
+- **Python:** High-performance REST/GraphQL services (FastAPI), data transformations, scripting, and administrative workflows (Django).
+- **C++:** Low-level systems, algorithmic efficiency, and foundational computation studies at Addis Ababa University.
+- **Java:** Object-oriented systems, enterprise concurrency patterns, and academic coursework.
+
+### Frontend & Editorial
+- **React & Next.js:** Production SSR/SSG web applications, stateful multi-step operational portals, dashboard analytics.
+- **Astro:** Content-first static site generation, high-performance editorial web architectures, and zero-JS default footprint.
+- **Tailwind CSS & Modern CSS:** Utility-first and modular custom design systems with dark/light theming and high contrast readability.
+
+### Backend, Databases & Infrastructure
+- **Node.js & Nest.js:** Scalable modular backend architectures with dependency injection, typed DTOs, and event emitters.
+- **FastAPI & Django:** Fast async Python APIs and robust data management backends.
+- **PostgreSQL:** Primary relational workhorse, leveraging ACID transactions, complex aggregations, composite keys, and indexing for enterprise audit trails.
+- **Redis:** Distributed in-memory caching, pub/sub messaging, session stores, and rate limiting.
+- **Docker & Linux:** Containerized deployments, reproducible development environments, systemd service management, and Nginx reverse proxies on Ubuntu Linux hosts.
+
+---
+
+## Major Systems & Case Studies
+
+### 1. Restaurant & Hospitality ERP
+- **Problem Space:** Commercial restaurants face high turnover, split billing errors, kitchen-to-floor miscommunications, and untracked inventory shrinkage.
+- **Architectural Solution:** An integrated platform unifying digital QR customer menus, split-ticket kitchen display systems (KDS), dual-level recipe inventory subtraction, waiter handheld POS, staff timecard tracking, and automated end-of-day bank reconciliations.
+- **Verified Deployments:**
+  - **Cloud Sun Cafe (Bahir Dar):** https://cloudsunbahirdar.com/ — QR table-ordering and automated payroll.
+  - **Arabian Palace Restaurant (Addis Ababa):** https://arabianpalace-eth.com/ — Multi-level dining and multi-station routing.
+  - **Cloud Sun Cafe (Addis Ababa):** https://cloudsun-cafe.com/ — Fast-paced metropolitan cafe logistics.
+  - **KOS Home Cafe:** https://koshomecafe.com/ — Specialty brunch venue with live stock replenishment.
+
+### 2. Nur Selam Baltna: Factory Manufacturing ERP
+- **Problem Space:** Agricultural spice and grain processing requires strict batch tracking from raw harvest intake to packaged consumer goods.
+- **Architectural Solution:** Traceable manufacturing ERP that models formulation batch ratios, packaging line yield, waste accounting, and wholesale distribution logistics.
+- **Deployment:** https://nurselambaltina.com/
+
+### 3. Retail POS & Shop Management Platform
+- **Problem Space:** Retailers with multi-store locations struggle with inventory sync, expiration of perishable goods, and slow checkouts.
+- **Architectural Solution:** Barcode-native POS application supporting offline caching, purchase order workflows, lot/expiry alerts, and cross-branch stock transfers.
+- **Verified Deployments:**
+  - **Cloud Group: Retail & Treasury:** https://cloudgroup-et.com/ — Multi-tier wholesale & retail checkout.
+  - **Yusra Baltina:** https://yusrabaltina.com/ — Spice and traditional food retail with expiration tracking.
+  - **Yoban Kitchenware:** https://yoban-et.com/ — High-SKU kitchenware inventory and custom barcode generation.
+  - **Nur Selam Baltina Shop:** https://shop.nurselambaltina.com/ — Factory-synced direct retail storefront.
+  - **Ethio Yarn Store:** https://ethioyarnstores.com/ — Integrated shop system with companion Flutter mobile app and live GPS shipping calculations.
+
+### 4. Non-Profit & Humanitarian Ecosystem
+- **Problem Space:** Charitable organizations require radical transparency, verifiable voucher redemption, and organized sponsorship records.
+- **Architectural Solution:** Digital social welfare ecosystem including child sponsorship portals, QR voucher meal distributions at dining venues, donation ledgers, and digital student ID card issuance.
+- **Verified Deployments:**
+  - **Eznet Child Care Portal:** https://eznet-cp.com/
+  - **Metezazen Charity:** https://metezazen.org/
+  - **My Charities Foundation:** https://mycharities-foundation.org/
+  - **Dar Al-Fiker Foundation:** https://daralfiker.org/
+  - **Afak Organization:** https://www.afakorganization.com/
+  - **Mamedoch Association:** https://mamedoch.org/
+  - **Ethiopian Ahle Sunna Mosque Network:** https://ethioahlesunnah.org/
+  - **Arefa Islamic Institution:** https://arefaic.org/
+  - **Atika Women's Center:** https://atikawec.com/
+
+### 5. Sara Mall: Commercial Property & Tenant ERP
+- **Problem Space:** Multi-tenant retail complexes require synchronized floor space allocation, tenant contracts, utility sub-metering, and recurring lease invoicing.
+- **Architectural Solution:** Central property management system tracking units, lease cycles, penalty calculations, and automated statements.
+
+---
+
+## Chronology & Educational Background
+
+### 2024 — Present: Co-Founder & Software Engineer
+- **Organization:** BirtuCan Technologies PLC (https://birtucansoftware.com)
+- **Focus:** Bootstrapping enterprise software for underserved business verticals. Overseeing end-to-end architecture, customer discovery, field deployments, and reliability engineering.
+
+### 2022 — 2025: Bachelor of Science in Computer Science
+- **Institution:** Addis Ababa University (AAU) — 4 Kilo Campus, Addis Ababa
+- **Focus:** Algorithms and data structures, discrete mathematics, computer systems architecture, operating systems, database management, and computation theory.
+
+### 2023 — 2024: MERN Stack Engineering Bootcamp
+- **Institution:** Evangadi Networks
+- **Focus:** Practical full-stack web application development, asynchronous APIs, component design patterns, and deployment pipelines.
+
+### 2023: UI/UX Design Intern
+- **Organization:** RDX Startup
+- **Focus:** User interviews, interactive prototyping, and ergonomic design systems prioritizing high-speed workflows.
+
+---
+
+## Machine-Readable API
+For automated consumption and agent integration, a static structured JSON endpoint is available:
+- **Endpoint:** `GET https://hamzajhad.com/api/portfolio.json`
+- **Output:** Complete JSON payload with personal bio, categorized tech stack, project case studies, and deployment URLs.
