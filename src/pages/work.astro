@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { projects } from '../data/projects';
+import RestaurantMetricsKPI from '../components/RestaurantMetricsKPI.astro';
 
 const multiProjects = projects.filter((p) => p.isMulti && p.deployments);
 ---
@@ -118,6 +119,10 @@ const multiProjects = projects.filter((p) => p.isMulti && p.deployments);
         <div class="project-meta">
           <span class="category-tag">{project.category}</span>
         </div>
+
+        {project.slug === 'restaurant-hospitality-erp' && (
+          <RestaurantMetricsKPI />
+        )}
       </li>
     ))}
   </ul>
