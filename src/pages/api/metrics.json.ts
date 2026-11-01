@@ -131,7 +131,6 @@ export const GET: APIRoute = async () => {
   const payload = {
     total_orders,
     total_items,
-    live_venues: liveCount,
     is_live: liveCount > 0,
   };
 

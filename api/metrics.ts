@@ -136,14 +136,12 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({
       total_orders,
       total_items,
-      live_venues: liveCount,
       is_live: liveCount > 0,
     });
   } catch (_e) {
     return res.status(200).json({
       total_orders: FALLBACK_TOTAL_ORDERS,
       total_items: FALLBACK_TOTAL_ITEMS,
-      live_venues: 0,
       is_live: false,
     });
   }

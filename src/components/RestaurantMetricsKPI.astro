@@ -51,7 +51,6 @@
   interface MetricsPayload {
     total_orders?: number;
     total_items?: number;
-    live_venues?: number;
     is_live?: boolean;
   }
 
@@ -111,7 +110,7 @@
         if (dot) {
           dot.className = `pulse-dot ${isLive ? 'is-live' : 'is-cached'}`;
           dot.title = isLive
-            ? `Live real-time operational telemetry (${data.live_venues ?? 1} venue(s) reporting)`
+            ? 'Live real-time operational telemetry active'
             : 'Verified baseline active';
         }
 
